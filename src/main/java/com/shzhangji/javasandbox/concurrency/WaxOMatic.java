@@ -77,7 +77,6 @@ public class WaxOMatic {
         executor.execute(new WaxOn(car));
         TimeUnit.SECONDS.sleep(5);
         executor.shutdownNow();
-
     }
 
 }
