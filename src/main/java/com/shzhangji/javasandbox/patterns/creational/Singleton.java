@@ -58,6 +58,7 @@ public class Singleton {
     }
 
     public static class SerializableSingleton implements Serializable {
+        private SerializableSingleton() {}
         private static final long serialVersionUID = 1L;
         private static SerializableSingleton instance = new SerializableSingleton();
         public static SerializableSingleton getInstance() { return instance; }
