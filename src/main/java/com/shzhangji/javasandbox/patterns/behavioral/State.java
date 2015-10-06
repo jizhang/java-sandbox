@@ -58,11 +58,11 @@ public class State {
     public static void main(String[] args) {
 
         Turnstile t = new Turnstile();
-        t.coin();
-        t.pass();
-        t.pass();
-        t.coin();
-        t.coin();
+        t.coin(); // unlock
+        t.pass(); // lock
+        t.pass(); // alarm
+        t.coin(); // unlock
+        t.coin(); // thankyou
 
     }
 
