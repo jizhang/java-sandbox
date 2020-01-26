@@ -1,5 +1,2 @@
-.project
-.classpath
-.buildpath
-.settings
-target
+target/
+.idea/
