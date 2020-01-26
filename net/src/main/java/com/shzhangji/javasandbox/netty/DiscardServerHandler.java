@@ -1,34 +1,25 @@
 package com.shzhangji.javasandbox.netty;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.channel.ExceptionEvent;
-import org.jboss.netty.channel.MessageEvent;
-import org.jboss.netty.channel.SimpleChannelHandler;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
 
-public class DiscardServerHandler extends SimpleChannelHandler {
-
-    @Override
-    public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
-            throws Exception {
-
-        ChannelBuffer buf = (ChannelBuffer) e.getMessage();
-        while (buf.readable()) {
-            System.out.print((char) buf.readByte());
-        }
-        System.out.println();
-
-        buf.resetReaderIndex();
-        e.getChannel().write(buf);
+public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
+  @Override
+  public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    ByteBuf in = (ByteBuf) msg;
+    try {
+      System.out.println(in.toString(CharsetUtil.US_ASCII));
+    } finally {
+      ReferenceCountUtil.release(msg);
     }
+  }
 
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e)
-            throws Exception {
-
-        Channel ch = e.getChannel();
-        ch.close();
-    }
-
+  @Override
+  public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    cause.printStackTrace();
+    ctx.close();
+  }
 }
