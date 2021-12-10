@@ -18,6 +18,7 @@
   <modules>
     <module>net</module>
     <module>misc</module>
+    <module>algorithm</module>
   </modules>
 
   <dependencyManagement>
