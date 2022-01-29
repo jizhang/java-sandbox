@@ -1,6 +1,6 @@
 package com.shzhangji.javasandbox.algorithm.backtracking;
 
-public class KnapsackV1 {
+public class KnapsackSimple {
   static int maxWeight = Integer.MIN_VALUE;
 
   public static void main(String[] args) {
