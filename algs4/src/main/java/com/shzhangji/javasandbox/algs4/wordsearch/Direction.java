@@ -1,0 +1,6 @@
+package com.shzhangji.javasandbox.algs4.wordsearch;
+
+public enum Direction {
+    TOP_BOTTOM, BOTTOM_TOP, LEFT_RIGHT, RIGHT_LEFT,
+    BOTTOMLEFT_TOPRIGHT, BOTTOMRIGHT_TOPLEFT, TOPLEFT_BOTTOMRIGHT, TOPRIGHT_BOTTOMLEFT
+}
