@@ -12,26 +12,26 @@ public class MinCoin {
       return 0;
     }
 
-    var states = new boolean[amount + 1];
+    var states = new int[amount + 1];
 
     for (int coin : coins) {
       if (coin == amount) {
         return 1;
       }
       if (coin < amount) {
-        states[coin] = true;
+        states[coin] = 1;
       }
     }
 
-    for (int i = 1; i < states.length; ++i) {
+    for (int i = 1; i < amount; ++i) {
       for (int j = amount; j >= 1; --j) {
-        if (states[j]) {
+        if (states[j] == i) {
           for (int coin : coins) {
             if (j + coin == amount) {
               return i + 1;
             }
             if (j + coin < amount) {
-              states[j + coin] = true;
+              states[j + coin] = i + 1;
             }
           }
         }
