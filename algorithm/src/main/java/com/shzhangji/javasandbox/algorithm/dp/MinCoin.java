@@ -7,22 +7,30 @@ public class MinCoin {
     System.out.println("Coin count: " + minCoin(coins, money));
   }
 
-  static int minCoin(int[] coins, int money) {
-    var states = new boolean[money + 1];
+  static int minCoin(int[] coins, int amount) {
+    if (amount == 0) {
+      return 0;
+    }
 
-    states[0] = true;
+    var states = new boolean[amount + 1];
+
     for (int coin : coins) {
-      states[coin] = true;
+      if (coin == amount) {
+        return 1;
+      }
+      if (coin < amount) {
+        states[coin] = true;
+      }
     }
 
     for (int i = 1; i < states.length; ++i) {
-      for (int j = money; j >= 1; --j) {
+      for (int j = amount; j >= 1; --j) {
         if (states[j]) {
           for (int coin : coins) {
-            if (j + coin == money) {
+            if (j + coin == amount) {
               return i + 1;
             }
-            if (j + coin < money) {
+            if (j + coin < amount) {
               states[j + coin] = true;
             }
           }
@@ -30,6 +38,6 @@ public class MinCoin {
       }
     }
 
-    return 0;
+    return -1;
   }
 }
