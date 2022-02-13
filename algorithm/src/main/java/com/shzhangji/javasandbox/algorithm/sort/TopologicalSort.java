@@ -16,6 +16,7 @@ public class TopologicalSort {
     graph.addEdge(2, 3);
     graph.addEdge(3, 1);
     sortByKahn(graph); // 5 4 2 3 1 0
+    sortByDFS(graph);
 
     // https://leetcode.com/problems/course-schedule/
     System.out.println(canFinish(2, new int[][] { { 1, 0 } }));
@@ -49,6 +50,36 @@ public class TopologicalSort {
     }
 
     System.out.println();
+  }
+
+  static void sortByDFS(Graph graph) {
+    var inverted = new ArrayList<LinkedList<Integer>>(graph.vertexCount);
+    for (int i = 0; i < graph.vertexCount; ++i) {
+      inverted.add(new LinkedList<>());
+    }
+
+    for (int i = 0; i < graph.vertexCount; ++i) {
+      for (int target : graph.adjacencyList.get(i)) {
+        inverted.get(target).add(i);
+      }
+    }
+
+    var visited = new boolean[graph.vertexCount];
+    for (int i = 0; i < graph.vertexCount; ++i) {
+      if (visited[i]) continue;
+      visited[i] = true;
+      dfs(i, inverted, visited);
+    }
+    System.out.println();
+  }
+
+  static void dfs(int vertex, List<LinkedList<Integer>> inverted, boolean[] visited) {
+    for (var i : inverted.get(vertex)) {
+     if (visited[i]) continue;
+     visited[i] = true;
+     dfs(i, inverted, visited);
+    }
+    System.out.print(vertex + " ");
   }
 
   static boolean canFinish(int numCourses, int[][] prerequisites) {
