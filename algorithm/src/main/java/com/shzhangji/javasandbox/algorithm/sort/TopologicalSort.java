@@ -53,7 +53,7 @@ public class TopologicalSort {
   }
 
   static void sortByDFS(Graph graph) {
-    var inverted = new ArrayList<LinkedList<Integer>>(graph.vertexCount);
+    List<List<Integer>> inverted = new ArrayList<>(graph.vertexCount);
     for (int i = 0; i < graph.vertexCount; ++i) {
       inverted.add(new LinkedList<>());
     }
@@ -73,7 +73,7 @@ public class TopologicalSort {
     System.out.println();
   }
 
-  static void dfs(int vertex, List<LinkedList<Integer>> inverted, boolean[] visited) {
+  static void dfs(int vertex, List<List<Integer>> inverted, boolean[] visited) {
     for (var i : inverted.get(vertex)) {
      if (visited[i]) continue;
      visited[i] = true;
@@ -112,7 +112,7 @@ public class TopologicalSort {
 
   static class Graph {
     int vertexCount;
-    List<LinkedList<Integer>> adjacencyList;
+    List<List<Integer>> adjacencyList;
 
     Graph(int vertexCount) {
       this.vertexCount = vertexCount;
