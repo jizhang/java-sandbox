@@ -8,7 +8,9 @@ import java.nio.ByteBuffer;
 public class LongEventMain {
   public static void main(String[] args) throws Exception {
     var disruptor = new Disruptor<>(LongEvent::new, 1024, DaemonThreadFactory.INSTANCE);
-    disruptor.handleEventsWith((event, sequence, endOfBatch) -> System.out.println(event));
+    disruptor.handleEventsWith((event, sequence, endOfBatch) -> {
+      System.out.println(event);
+    });
     disruptor.start();
 
     var ringBuffer = disruptor.getRingBuffer();
