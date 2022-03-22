@@ -20,6 +20,32 @@
 - [ ] [Linked list cycle](https://leetcode.com/problems/linked-list-cycle/)
 - [ ] [Merge k sorted lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 
+## Day 2: Stack, queue and recursion
+
+### Stack
+
+- [ ] Implement array based stack.
+- [ ] Implement linked list based stack.
+- [ ] Emulate browser's back and forward function.
+- [ ] [Valid parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [ ] [Longest valid parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
+- [ ] [Evaluate reverse Polish notation](https://leetcode.com/problems/evaluate-reserve-polish-notation/)
+
+### Queue
+
+- [ ] Implement array based queue.
+- [ ] Implement linked list based queue.
+- [ ] Implement circular queue.
+- [ ] [Design circular deque](https://leetcode.com/problems/design-circular-deque/)
+- [ ] [Sliding window maximum](https://leetcode.com/problems/sliding-window-maximum/)
+
+### Recursion
+
+- [ ] Fibonacci f(n) = f(n-1) + f(n - 2)
+- [ ] Factorial n!
+- [ ] Permutation
+- [ ] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
+
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
 ### Backtracking
