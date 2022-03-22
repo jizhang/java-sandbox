@@ -41,10 +41,10 @@
 
 ### Recursion
 
-- [ ] Fibonacci f(n) = f(n-1) + f(n - 2)
+- [x] Fibonacci f(n) = f(n-1) + f(n - 2)
 - [ ] Factorial n!
 - [ ] Permutation
-- [ ] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
+- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
@@ -69,3 +69,4 @@
 - [ ] [Best time to buy and sell stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [ ] [Triangle](https://leetcode.com/problems/triangle/)
+- [ ] Climbing stairs
