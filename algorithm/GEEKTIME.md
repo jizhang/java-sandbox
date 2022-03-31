@@ -46,6 +46,19 @@
 - [ ] Permutation
 - [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 
+## Day 3: Sort and binary search
+
+### Sort
+
+- [ ] Implement merge sort, quick sort, insertion sort, bubble sort, selection sort.
+- [ ] [Kth largest element in an array, O(n)](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+
+### Binary search
+
+- [ ] Implement binary search on a sorted array.
+- [ ] Fuzzy binary search, e.g. greater than or equal to a value.
+- [x] [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
+
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
 ### Backtracking

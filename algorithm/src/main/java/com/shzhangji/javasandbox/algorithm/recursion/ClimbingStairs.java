@@ -15,7 +15,7 @@ public class ClimbingStairs {
     return climbStairs(n, new int[n + 1]);
   }
 
-  public int climbStairs(int n, int[] cache) {
+  int climbStairs(int n, int[] cache) {
     if (n == 1) return 1;
     if (n == 2) return 2;
     if (cache[n] > 0) return cache[n];
