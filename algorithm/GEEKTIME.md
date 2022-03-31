@@ -55,7 +55,7 @@
 
 ### Binary search
 
-- [ ] Implement binary search on a sorted array.
+- [x] [Implement binary search on a sorted array.](https://leetcode.com/problems/binary-search/)
 - [ ] Fuzzy binary search, e.g. greater than or equal to a value.
 - [x] [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
 
