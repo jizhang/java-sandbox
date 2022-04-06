@@ -59,6 +59,21 @@
 - [ ] Fuzzy binary search, e.g. greater than or equal to a value.
 - [x] [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
 
+## Day 4: Hash table and string
+
+### Hash table
+
+- [ ] Implement a hash table thas uses linked list to solve key conflict.
+- [ ] LRU cache.
+
+### String
+
+- [ ] Implement a Trie tree with a-z alphabets.
+- [ ] [String match with brute force.](https://leetcode.com/problems/implement-strstr/)
+- [ ] [Reverse string](https://leetcode.com/problems/reverse-string/)
+- [ ] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
+- [ ] [String to integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
+
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
 ### Backtracking
