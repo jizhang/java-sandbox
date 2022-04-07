@@ -74,6 +74,25 @@
 - [ ] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [ ] [String to integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
 
+## Day 5: Binary tree and heap
+
+### Binary tree
+
+- [ ] Implement a binary tree, support insertion, deletion, search.
+- [ ] Find the successor and predecessor.
+- [ ] Inorder/preorder/postorder traversal.
+- [ ] [Invert binary tree](https://leetcode.com/problems/invert-binary-tree/)
+- [ ] [Maximum depth of binary tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+- [ ] [Validate binary search tree](https://leetcode.com/problems/validate-binary-search-tree/)
+- [ ] [Path sum](https://leetcode.com/problems/path-sum/)
+
+### Heap
+
+- [ ] Implement min-heap, max-heap, priority queue.
+- [ ] Heap sort.
+- [ ] Merge K sorted arrays with priority queue.
+- [ ] Top K elements of a dynamic data set.
+
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
 ### Backtracking
