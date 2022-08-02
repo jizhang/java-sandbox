@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.sort;
+package com.shzhangji.algorithm.sort;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
