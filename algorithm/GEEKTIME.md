@@ -56,8 +56,9 @@
 ### Binary search
 
 - [x] [Implement binary search on a sorted array.](https://leetcode.com/problems/binary-search/)
-- [ ] Fuzzy binary search, e.g. greater than or equal to a value.
+- [x] Fuzzy binary search, e.g. greater than or equal to a value.
 - [x] [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
+- [ ] [Search in rotated sorted array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ## Day 4: Hash table and string
 

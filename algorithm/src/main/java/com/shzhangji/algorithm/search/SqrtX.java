@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.binarysearch;
+package com.shzhangji.algorithm.search;
 
 public class SqrtX {
   public static void main(String[] args) {
