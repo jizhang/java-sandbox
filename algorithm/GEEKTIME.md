@@ -90,7 +90,7 @@
 ### Heap
 
 - [ ] Implement min-heap, max-heap, priority queue.
-- [ ] Heap sort.
+- [x] Heap sort.
 - [ ] Merge K sorted arrays with priority queue.
 - [ ] Top K elements of a dynamic data set.
 
