@@ -64,8 +64,8 @@
 
 ### Hash table
 
-- [ ] Implement a hash table thas uses linked list to solve key conflict.
-- [ ] LRU cache.
+- [ ] Implement a hash table that uses linked list to solve key conflict.
+- [x] [LRU cache](https://leetcode.com/problems/lru-cache/)
 
 ### String
 
