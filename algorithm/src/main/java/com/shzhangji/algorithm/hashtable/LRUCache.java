@@ -3,16 +3,36 @@ package com.shzhangji.algorithm.hashtable;
 // https://leetcode.com/problems/lru-cache/
 public class LRUCache {
   public static void main(String[] args) {
+//    var cache = new LRUCache(2);
+//    cache.put(1, 1);
+//    cache.put(2, 2);
+//    System.out.println(cache.get(1)); // 1
+//    cache.put(3, 3);
+//    System.out.println(cache.get(2)); // -1
+//    cache.put(4, 4);
+//    System.out.println(cache.get(1)); // -1
+//    System.out.println(cache.get(3)); // 3
+//    System.out.println(cache.get(4)); // 4
+
+//    var cache = new LRUCache(1);
+//    cache.put(2, 1);
+//    cache.getAndPrint(2);
+//    cache.put(3, 2);
+//    cache.getAndPrint(2);
+//    cache.getAndPrint(3);
+
     var cache = new LRUCache(2);
-    cache.put(1, 1);
+    cache.put(2, 1);
     cache.put(2, 2);
-    System.out.println(cache.get(1)); // 1
-    cache.put(3, 3);
-    System.out.println(cache.get(2)); // -1
-    cache.put(4, 4);
-    System.out.println(cache.get(1)); // -1
-    System.out.println(cache.get(3)); // 3
-    System.out.println(cache.get(4)); // 4
+    cache.getAndPrint(2);
+    cache.put(1, 1);
+    cache.put(4, 1);
+    cache.get(2);
+  }
+
+  public void getAndPrint(int key) {
+    int value = get(key);
+    System.out.println(value);
   }
 
   Node[] hashTable;
@@ -42,9 +62,8 @@ public class LRUCache {
       return -1;
     }
 
-    node.prev.next = node.next;
-    tail.next = node;
-    tail = node;
+    removeLinkedNode(node);
+    appendLinkedNode(node);
 
     return node.value;
   }
@@ -71,32 +90,47 @@ public class LRUCache {
       }
     }
 
+    appendLinkedNode(node);
+
+    if (++count > capacity) {
+      removeFromCache(head.next);
+    }
+  }
+
+  void removeLinkedNode(Node node) {
+    node.prev.next = node.next;
+    if (node.next == null) {
+      tail = node.prev;
+    } else {
+      node.next.prev = node.prev;
+    }
+  }
+
+  void appendLinkedNode(Node node) {
     tail.next = node;
     node.prev = tail;
     tail = node;
+  }
 
-    if (++count > capacity) {
-      pos = head.next.key % hashTable.length;
-      node = hashTable[pos];
-      Node prevNode = null;
-      while (node != null) {
-        if (node.key == head.next.key) {
-          break;
-        }
-        prevNode = node;
-        node = node.hnext;
+  void removeFromCache(Node removingNode) {
+    int pos = removingNode.key % hashTable.length;
+    var node = hashTable[pos];
+    Node prevNode = null;
+    while (node != null) {
+      if (node.key == removingNode.key) {
+        break;
       }
-
-      assert node != null;
-      if (prevNode == null) {
-        hashTable[pos] = node.hnext;
-      } else {
-        prevNode.hnext = node.hnext;
-      }
-
-      head.next = head.next.next;
-      head.next.prev = head;
+      prevNode = node;
+      node = node.hnext;
     }
+
+    assert node != null;
+    hashTable[pos] = node.hnext;
+    if (prevNode != null) {
+      prevNode.hnext = node.hnext;
+    }
+
+    removeLinkedNode(node);
   }
 
   static class Node {
