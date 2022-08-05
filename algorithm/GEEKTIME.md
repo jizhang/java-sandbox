@@ -15,7 +15,7 @@
 
 - [ ] Implement singly, doubly, circular linked list, that supports add and delete.
 - [ ] Reverse singly linked list.
-- [ ] [Merge two sorted linked list into one.](https://leetcode.com/problems/merge-two-sorted-lists/)
+- [x] [Merge two sorted linked list into one.](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [ ] Find the middle node of a linked list.
 - [ ] [Linked list cycle](https://leetcode.com/problems/linked-list-cycle/)
 - [ ] [Merge k sorted lists](https://leetcode.com/problems/merge-k-sorted-lists/)
@@ -64,8 +64,9 @@
 
 ### Hash table
 
-- [ ] Implement a hash table thas uses linked list to solve key conflict.
-- [ ] LRU cache.
+- [x] Implement a hash table that uses linked list to solve key conflict.
+- [x] [LRU cache](https://leetcode.com/problems/lru-cache/)
+- [x] [Two sum](https://leetcode.com/problems/two-sum/)
 
 ### String
 
