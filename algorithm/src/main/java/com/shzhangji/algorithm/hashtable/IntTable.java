@@ -2,85 +2,74 @@ package com.shzhangji.algorithm.hashtable;
 
 import lombok.AllArgsConstructor;
 
-public class IntTable<V> {
+public class IntTable {
   public static void main(String[] args) {
-    var table = new IntTable<Integer>();
+    var table = new IntTable();
     table.put(1, 2);
     table.put(1, 3);
     System.out.println(table.get(1)); // 3
     table.put(2, 1);
     System.out.println(table.get(2)); // 1
     table.remove(1);
-    System.out.println(table.get(1)); // null
+    System.out.println(table.get(1)); // -1
   }
 
-  @SuppressWarnings("unchecked")
-  Node<V>[] table = new Node[1];
+  Node[] table = new Node[1];
 
-  public void put(int key, V value) {
+  public void put(int key, int value) {
     int pos = key % table.length;
-    var head = table[pos];
-    if (head == null) {
-      head = new Node<>(0, null, null);
-      table[pos] = head;
-    }
-
-    if (head.next == null) {
-      head.next = new Node<>(0, value, null);
-    } else {
-      var node = head;
-      do {
-        node = node.next;
-        if (node.key == key) {
-          node.value = value;
-          return;
-        }
-      } while (node.next != null);
-
-      node.next = new Node<>(key, value, null);
-    }
-  }
-
-  public V get(int key) {
-    int pos = key % table.length;
-    if (table[pos] == null) {
-      return null;
-    }
-
     var node = table[pos];
-    do {
+    Node prev = null;
+    while (node != null) {
+      if (node.key == key) {
+        node.value = value;
+        return;
+      }
+      prev = node;
       node = node.next;
+    }
+
+    node = new Node(key, value, null);
+    if (prev == null) {
+      table[pos] = node;
+    } else {
+      prev.next = node;
+    }
+  }
+
+  public int get(int key) {
+    int pos = key % table.length;
+    var node = table[pos];
+    while (node != null) {
       if (node.key == key) {
         return node.value;
       }
-    } while (node.next != null);
-
-    return null;
+      node = node.next;
+    }
+    return -1;
   }
 
   public void remove(int key) {
     int pos = key % table.length;
-    var head = table[pos];
-    if (head == null || head.next == null) {
-      return;
-    }
+    var node = table[pos];
 
-    var node = head;
-    Node<V> prev;
-    do {
+    Node prev = null;
+    while (node != null) {
+      if (node.key == key) {
+        if (prev == null) {
+          table[pos] = null;
+        } else {
+          prev.next = node.next;
+        }
+      }
       prev = node;
       node = node.next;
-      if (node.key == key) {
-        prev.next = node.next;
-        return;
-      }
-    } while (node.next != null);
+    }
   }
 
   @AllArgsConstructor
-  static class Node<V> {
-    int key;
-    V value;
-    Node<V> next;
+  static class Node {
+    int key, value;
+    Node next;
   }
 }
