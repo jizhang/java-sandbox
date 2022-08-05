@@ -1,5 +1,8 @@
 package com.shzhangji.algorithm.hashtable;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // https://leetcode.com/problems/lru-cache/
 public class LRUCache {
   public static void main(String[] args) {
@@ -43,22 +46,20 @@ public class LRUCache {
     System.out.println(value);
   }
 
-  Node[] hashTable;
+  Map<Integer, Node> hashTable;
   Node head, tail;
   int capacity;
-  int count;
 
   public LRUCache(int capacity) {
-    hashTable = new Node[capacity];
-    head = new Node(0, 0, null, null, null);
-    tail = new Node(0, 0, head, null, null);
+    hashTable = new HashMap<>(capacity);
+    head = new Node(0, 0, null, null);
+    tail = new Node(0, 0, head, null);
     head.next = tail;
     this.capacity = capacity;
-    this.count = 0;
   }
 
   public int get(int key) {
-    var node = getTableNode(key);
+    var node = hashTable.get(key);
     if (node == null) {
       return -1;
     }
@@ -68,67 +69,21 @@ public class LRUCache {
     return node.value;
   }
 
-  Node getTableNode(int key) {
-    int pos = key % hashTable.length;
-    var slot = hashTable[pos];
-
-    if (slot == null || slot.hnext == null) {
-      return null;
-    }
-
-    var node = slot;
-    do {
-      node = node.hnext;
-      if (node.key == key) {
-        return node;
-      }
-    } while (node.hnext != null);
-
-    return null;
-  }
-
   public void put(int key, int value) {
-    var node = putTableNode(key, value);
-
-    if (node.prev == null) {
+    var node = hashTable.get(key);
+    if (node == null) {
+      node = new Node(key, value, null, null);
+      hashTable.put(key, node);
       appendLinkedNode(node);
-      ++count;
     } else {
+      node.value = value;
       removeLinkedNode(node);
       appendLinkedNode(node);
     }
 
-    if (count > capacity) {
-      removeTableNode(head.next.key);
+    if (hashTable.size() > capacity) {
+      hashTable.remove(head.next.key);
       removeLinkedNode(head.next);
-      --count;
-    }
-  }
-
-  Node putTableNode(int key, int value) {
-    int pos = key % hashTable.length;
-    var slot = hashTable[pos];
-
-    if (slot == null) {
-      slot = new Node(0, 0, null, null, null);
-      hashTable[pos] = slot;
-    }
-
-    if (slot.hnext == null) {
-      slot.hnext = new Node(key, value, null, null, null);
-      return slot.hnext;
-    } else {
-      var node = slot;
-      do {
-        node = node.hnext;
-        if (node.key == key) {
-          node.value = value;
-          return node;
-        }
-      } while (node.hnext != null);
-
-      node.hnext = new Node(key, value, null, null, null);
-      return node.hnext;
     }
   }
 
@@ -144,36 +99,15 @@ public class LRUCache {
     tail.prev = node;
   }
 
-  void removeTableNode(int key) {
-    int pos = key % hashTable.length;
-    var slot = hashTable[pos];
-
-    if (slot == null || slot.hnext == null) {
-      return;
-    }
-
-    var node = slot;
-    Node prev;
-    do {
-      prev = node;
-      node = node.hnext;
-      if (node.key == key) {
-        prev.hnext = node.hnext;
-        return;
-      }
-    } while (node.hnext != null);
-  }
-
   static class Node {
     int key, value;
-    Node prev, next, hnext;
+    Node prev, next;
 
-    public Node(int key, int value, Node prev, Node next, Node hnext) {
+    public Node(int key, int value, Node prev, Node next) {
       this.key = key;
       this.value = value;
       this.prev = prev;
       this.next = next;
-      this.hnext = hnext;
     }
   }
 }
