@@ -58,29 +58,57 @@ public class LRUCache {
   }
 
   public int get(int key) {
+    var node = getTableNode(key);
+    if (node == null) {
+      return -1;
+    }
+
+    removeLinkedNode(node);
+    appendLinkedNode(node);
+    return node.value;
+  }
+
+  Node getTableNode(int key) {
     int pos = key % hashTable.length;
     var slot = hashTable[pos];
 
     if (slot == null || slot.hnext == null) {
-      return -1;
+      return null;
     }
 
     var node = slot;
     do {
       node = node.hnext;
       if (node.key == key) {
-        removeLinkedNode(node);
-        appendLinkedNode(node);
-        return node.value;
+        return node;
       }
     } while (node.hnext != null);
 
-    return -1;
+    return null;
   }
 
   public void put(int key, int value) {
+    var node = putTableNode(key, value);
+
+    if (node.prev == null) {
+      appendLinkedNode(node);
+      ++count;
+    } else {
+      removeLinkedNode(node);
+      appendLinkedNode(node);
+    }
+
+    if (count > capacity) {
+      removeTableNode(head.next.key);
+      removeLinkedNode(head.next);
+      --count;
+    }
+  }
+
+  Node putTableNode(int key, int value) {
     int pos = key % hashTable.length;
     var slot = hashTable[pos];
+
     if (slot == null) {
       slot = new Node(0, 0, null, null, null);
       hashTable[pos] = slot;
@@ -88,31 +116,19 @@ public class LRUCache {
 
     if (slot.hnext == null) {
       slot.hnext = new Node(key, value, null, null, null);
-      appendLinkedNode(slot.hnext);
-      ++count;
+      return slot.hnext;
     } else {
       var node = slot;
-      boolean found = false;
       do {
         node = node.hnext;
         if (node.key == key) {
           node.value = value;
-          removeLinkedNode(node);
-          appendLinkedNode(node);
-          found = true;
-          break;
+          return node;
         }
       } while (node.hnext != null);
 
-      if (!found) {
-        node.hnext = new Node(key, value, null, null, null);
-        appendLinkedNode(node.hnext);
-        ++count;
-      }
-    }
-
-    if (count > capacity) {
-      removeFromCache(head.next);
+      node.hnext = new Node(key, value, null, null, null);
+      return node.hnext;
     }
   }
 
@@ -128,8 +144,8 @@ public class LRUCache {
     tail.prev = node;
   }
 
-  void removeFromCache(Node removingNode) {
-    int pos = removingNode.key % hashTable.length;
+  void removeTableNode(int key) {
+    int pos = key % hashTable.length;
     var slot = hashTable[pos];
 
     if (slot == null || slot.hnext == null) {
@@ -141,10 +157,8 @@ public class LRUCache {
     do {
       prev = node;
       node = node.hnext;
-      if (node.key == removingNode.key) {
+      if (node.key == key) {
         prev.hnext = node.hnext;
-        removeLinkedNode(removingNode);
-        --count;
         return;
       }
     } while (node.hnext != null);
