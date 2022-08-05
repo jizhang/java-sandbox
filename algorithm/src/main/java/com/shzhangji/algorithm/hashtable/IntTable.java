@@ -2,44 +2,49 @@ package com.shzhangji.algorithm.hashtable;
 
 import lombok.AllArgsConstructor;
 
-public class IntTable {
+public class IntTable<V> {
   public static void main(String[] args) {
-    var table = new IntTable();
+    var table = new IntTable<Integer>();
     table.put(1, 2);
     table.put(1, 3);
     System.out.println(table.get(1)); // 3
     table.put(2, 1);
     System.out.println(table.get(2)); // 1
     table.remove(1);
-    System.out.println(table.get(1)); // -1
+    System.out.println(table.get(1)); // null
   }
 
-  Node[] table = new Node[1];
+  @SuppressWarnings("unchecked")
+  Node<V>[] table = new Node[1];
 
-  public void put(int key, int value) {
+  public void put(int key, V value) {
     int pos = key % table.length;
     var head = table[pos];
     if (head == null) {
-      table[pos] = new Node(0, 0, new Node(key, value, null));
-      return;
+      head = new Node<>(0, null, null);
+      table[pos] = head;
     }
 
-    var node = head;
-    do {
-      node = node.next;
-      if (node.key == key) {
-        node.value = value;
-        return;
-      }
-    } while (node.next != null);
+    if (head.next == null) {
+      head.next = new Node<>(0, value, null);
+    } else {
+      var node = head;
+      do {
+        node = node.next;
+        if (node.key == key) {
+          node.value = value;
+          return;
+        }
+      } while (node.next != null);
 
-    node.next = new Node(key, value, null);
+      node.next = new Node<>(key, value, null);
+    }
   }
 
-  public int get(int key) {
+  public V get(int key) {
     int pos = key % table.length;
     if (table[pos] == null) {
-      return -1;
+      return null;
     }
 
     var node = table[pos];
@@ -50,7 +55,7 @@ public class IntTable {
       }
     } while (node.next != null);
 
-    return -1;
+    return null;
   }
 
   public void remove(int key) {
@@ -61,7 +66,7 @@ public class IntTable {
     }
 
     var node = head;
-    Node prev = null;
+    Node<V> prev;
     do {
       prev = node;
       node = node.next;
@@ -73,8 +78,9 @@ public class IntTable {
   }
 
   @AllArgsConstructor
-  static class Node {
-    int key, value;
-    Node next;
+  static class Node<V> {
+    int key;
+    V value;
+    Node<V> next;
   }
 }
