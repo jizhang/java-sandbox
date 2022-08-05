@@ -1,9 +1,12 @@
 package com.shzhangji.algorithm.hashtable;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // https://leetcode.com/problems/lru-cache/
-public class LRUCache {
+public class LRUCacheWithHashMap {
   public static void main(String[] args) {
-//    var cache = new LRUCache(2);
+//    var cache = new LRUCacheWithHashMap(2);
 //    cache.put(1, 1);
 //    cache.put(2, 2);
 //    System.out.println(cache.get(1)); // 1
@@ -14,14 +17,14 @@ public class LRUCache {
 //    System.out.println(cache.get(3)); // 3
 //    System.out.println(cache.get(4)); // 4
 
-//    var cache = new LRUCache(1);
+//    var cache = new LRUCacheWithHashMap(1);
 //    cache.put(2, 1);
 //    cache.getAndPrint(2); // 1
 //    cache.put(3, 2);
 //    cache.getAndPrint(2); // -1
 //    cache.getAndPrint(3); // 2
 
-//    var cache = new LRUCache(2);
+//    var cache = new LRUCacheWithHashMap(2);
 //    cache.put(2, 1);
 //    cache.put(2, 2);
 //    cache.getAndPrint(2); // 2
@@ -29,7 +32,7 @@ public class LRUCache {
 //    cache.put(4, 1);
 //    cache.getAndPrint(2); // -1
 
-    var cache = new LRUCache(2);
+    var cache = new LRUCacheWithHashMap(2);
     cache.put(2, 1);
     cache.put(1, 1);
     cache.put(2, 3);
@@ -43,25 +46,20 @@ public class LRUCache {
     System.out.println(value);
   }
 
-  Node[] hashTable;
+  Map<Integer, Node> hashTable;
   Node head, tail;
   int capacity;
-  int count;
 
-  public LRUCache(int capacity) {
-    hashTable = new Node[capacity];
-
-    head = new Node(0, 0);
-    tail = new Node(0, 0);
+  public LRUCacheWithHashMap(int capacity) {
+    hashTable = new HashMap<>(capacity);
+    head = new Node(0, 0, null, null);
+    tail = new Node(0, 0, head, null);
     head.next = tail;
-    tail.prev = head;
-
     this.capacity = capacity;
-    this.count = 0;
   }
 
   public int get(int key) {
-    var node = getTableNode(key);
+    var node = hashTable.get(key);
     if (node == null) {
       return -1;
     }
@@ -72,19 +70,20 @@ public class LRUCache {
   }
 
   public void put(int key, int value) {
-    var node = putTableNode(key, value);
-    if (node.prev == null) {
+    var node = hashTable.get(key);
+    if (node == null) {
+      node = new Node(key, value, null, null);
+      hashTable.put(key, node);
       appendLinkedNode(node);
-      ++count;
     } else {
+      node.value = value;
       removeLinkedNode(node);
       appendLinkedNode(node);
     }
 
-    if (count > capacity) {
-      removeTableNode(head.next.key);
+    if (hashTable.size() > capacity) {
+      hashTable.remove(head.next.key);
       removeLinkedNode(head.next);
-      --count;
     }
   }
 
@@ -100,66 +99,15 @@ public class LRUCache {
     tail.prev = node;
   }
 
-  Node getTableNode(int key) {
-    int pos = key % hashTable.length;
-    var node = hashTable[pos];
-    while (node != null) {
-      if (node.key == key) {
-        return node;
-      }
-      node = node.hnext;
-    }
-    return null;
-  }
-
-  void removeTableNode(int key) {
-    int pos = key % hashTable.length;
-    var node = hashTable[pos];
-    Node prev = null;
-    while (node != null) {
-      if (node.key == key) {
-        if (prev != null) {
-          prev.hnext = node.hnext;
-        } else {
-          hashTable[pos] = node.hnext;
-        }
-        return;
-      }
-      prev = node;
-      node = node.hnext;
-    }
-  }
-
-  Node putTableNode(int key, int value) {
-    int pos = key % hashTable.length;
-    var node = hashTable[pos];
-    Node prev = null;
-    while (node != null) {
-      if (node.key == key) {
-        node.value = value;
-        return node;
-      }
-      prev = node;
-      node = node.hnext;
-    }
-
-    node = new Node(key, value);
-    if (prev == null) {
-      hashTable[pos] = node;
-    } else {
-      prev.hnext = node;
-    }
-
-    return node;
-  }
-
   static class Node {
     int key, value;
-    Node prev, next, hnext;
+    Node prev, next;
 
-    public Node(int key, int value) {
+    public Node(int key, int value, Node prev, Node next) {
       this.key = key;
       this.value = value;
+      this.prev = prev;
+      this.next = next;
     }
   }
 }
