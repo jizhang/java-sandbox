@@ -18,25 +18,22 @@ public class IntTable {
 
   public void put(int key, int value) {
     int pos = key % table.length;
-    if (table[pos] == null) {
-      table[pos] = new Node(key, value, null);
-    } else {
-      var node = table[pos];
-      Node prevNode = null;
-      while (node != null) {
-        if (node.key == key) {
-          node.value = value;
-          break;
-        }
-        prevNode = node;
-        node = node.next;
-      }
-
-      if (node == null) {
-        assert prevNode != null;
-        prevNode.next = new Node(key, value, null);
-      }
+    var head = table[pos];
+    if (head == null) {
+      table[pos] = new Node(0, 0, new Node(key, value, null));
+      return;
     }
+
+    var node = head;
+    do {
+      node = node.next;
+      if (node.key == key) {
+        node.value = value;
+        return;
+      }
+    } while (node.next != null);
+
+    node.next = new Node(key, value, null);
   }
 
   public int get(int key) {
@@ -46,37 +43,33 @@ public class IntTable {
     }
 
     var node = table[pos];
-    while (node != null) {
-      if (node.key == key) {
-        break;
-      }
+    do {
       node = node.next;
-    }
+      if (node.key == key) {
+        return node.value;
+      }
+    } while (node.next != null);
 
-    assert node != null;
-    return node.value;
+    return -1;
   }
 
   public void remove(int key) {
     int pos = key % table.length;
-    if (table[pos] == null) {
+    var head = table[pos];
+    if (head == null || head.next == null) {
       return;
     }
 
-    var node = table[pos];
-    Node prevNode = null;
-    while (node != null) {
-      if (node.key == key) {
-        if (prevNode == null) {
-          table[pos] = null;
-        } else {
-          prevNode.next = node.next;
-        }
-        break;
-      }
-      prevNode = node;
+    var node = head;
+    Node prev = null;
+    do {
+      prev = node;
       node = node.next;
-    }
+      if (node.key == key) {
+        prev.next = node.next;
+        return;
+      }
+    } while (node.next != null);
   }
 
   @AllArgsConstructor
