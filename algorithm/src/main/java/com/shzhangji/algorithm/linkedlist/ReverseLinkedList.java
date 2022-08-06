@@ -7,7 +7,7 @@ public class ReverseLinkedList {
     head.next.next = new ListNode(3);
     head.next.next.next = new ListNode(4);
     head.next.next.next.next = new ListNode(5);
-    head = new ReverseLinkedList().reverseList(head);
+    head = new ReverseLinkedList().reverseWithRecursion(head);
     while (head != null) {
       System.out.println(head.val);
       head = head.next;
@@ -24,5 +24,17 @@ public class ReverseLinkedList {
       node = next;
     }
     return prev;
+  }
+
+  public ListNode reverseWithRecursion(ListNode head) {
+    if (head == null || head.next == null) {
+      return head;
+    }
+
+    var rest = reverseWithRecursion(head.next);
+    head.next.next = head;
+    head.next = null;
+
+    return rest;
   }
 }
