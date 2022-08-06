@@ -13,8 +13,8 @@
 
 ### Linked list
 
-- [ ] Implement singly, doubly, circular linked list, that supports add and delete.
-- [ ] Reverse singly linked list.
+- [ ] Implement singly, ~~doubly~~, circular linked list, that supports add and delete.
+- [x] [Reverse linked list](https://leetcode.com/problems/reverse-linked-list/)
 - [x] [Merge two sorted linked list into one.](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [ ] Find the middle node of a linked list.
 - [ ] [Linked list cycle](https://leetcode.com/problems/linked-list-cycle/)
