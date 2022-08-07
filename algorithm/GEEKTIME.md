@@ -18,7 +18,7 @@
 - [x] [Merge two sorted linked list into one.](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [ ] Find the middle node of a linked list.
 - [ ] [Linked list cycle](https://leetcode.com/problems/linked-list-cycle/)
-- [ ] [Merge k sorted lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+- [x] [Merge k sorted lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 
 ## Day 2: Stack, queue and recursion
 
@@ -92,7 +92,6 @@
 
 - [ ] Implement min-heap, max-heap, priority queue.
 - [x] Heap sort.
-- [ ] Merge K sorted arrays with priority queue.
 - [ ] Top K elements of a dynamic data set.
 
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
