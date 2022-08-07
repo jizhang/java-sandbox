@@ -90,9 +90,9 @@
 
 ### Heap
 
-- [ ] Implement min-heap, max-heap, priority queue.
+- [ ] Implement ~~min-heap~~, max-heap, priority queue.
 - [x] Heap sort.
-- [ ] Top K elements of a dynamic data set.
+- [x] [Kth largest element in a stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
 
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
