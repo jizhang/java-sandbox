@@ -18,19 +18,17 @@ public class InvertBinaryTree {
 
     root = new InvertBinaryTree().invertTree(root);
     printTree(root);
+    printLevelOrder(root);
   }
 
   public TreeNode invertTree(TreeNode root) {
     if (root == null) {
-      return root;
+      return null;
     }
 
-    var t = root.left;
-    root.left = root.right;
-    root.right = t;
-
-    invertTree(root.left);
-    invertTree(root.right);
+    var left = invertTree(root.left);
+    root.left = invertTree(root.right);
+    root.right = left;
 
     return root;
   }
@@ -51,6 +49,35 @@ public class InvertBinaryTree {
       if (node.right != null) {
         queue.add(node.right);
       }
+    }
+
+    System.out.println();
+  }
+
+  static int getHeight(TreeNode root) {
+    if (root == null) {
+      return 0;
+    }
+    return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+  }
+
+  static void printLevelOrder(TreeNode root) {
+    for (int i = 1; i <= getHeight(root); ++i) {
+      printCurrentLevel(root, i);
+    }
+    System.out.println();
+  }
+
+  static void printCurrentLevel(TreeNode root, int level) {
+    if (root == null) {
+      return;
+    }
+
+    if (level == 1) {
+      System.out.print(root.val + " ");
+    } else {
+      printCurrentLevel(root.left, level - 1);
+      printCurrentLevel(root.right, level - 1);
     }
   }
 }
