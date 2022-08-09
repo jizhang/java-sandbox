@@ -24,13 +24,16 @@ public class ValidateBST {
     System.out.println(obj.isValidBST(root)); // false
   }
 
+  public boolean isValidBST(TreeNode root) {
+    // return validateInorder(root);
+    return validateMinMax(root, Long.MIN_VALUE, Long.MAX_VALUE);
+  }
+
   TreeNode prev;
 
-  public boolean isValidBST(TreeNode root) {
-    if (root.left != null) {
-      if (!isValidBST(root.left)) {
-        return false;
-      }
+  boolean validateInorder(TreeNode root) {
+    if (root.left != null && !validateInorder(root.left)) {
+      return false;
     }
 
     if (prev != null && prev.val >= root.val) {
@@ -38,12 +41,22 @@ public class ValidateBST {
     }
     prev = root;
 
-    if (root.right != null) {
-      if (!isValidBST(root.right)) {
-        return false;
-      }
+    if (root.right != null && !validateInorder(root.right)) {
+      return false;
     }
 
     return true;
+  }
+
+  boolean validateMinMax(TreeNode root, long min, long max) {
+    if (root == null) {
+      return true;
+    }
+
+    if (root.val <= min || root.val >= max) {
+      return false;
+    }
+
+    return validateMinMax(root.left, min, root.val) && validateMinMax(root.right, root.val, max);
   }
 }
