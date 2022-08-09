@@ -80,9 +80,9 @@
 
 ### Binary tree
 
-- [ ] Implement a binary tree, support insertion, deletion, search.
-- [ ] Find the successor and predecessor.
-- [ ] Inorder/preorder/postorder traversal.
+- [x] Implement a binary tree, support insertion, deletion, search.
+- [x] Find the successor and predecessor.
+- [x] Inorder/preorder/postorder/level traversal.
 - [x] [Invert binary tree](https://leetcode.com/problems/invert-binary-tree/)
 - [x] [Maximum depth of binary tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [x] [Validate binary search tree](https://leetcode.com/problems/validate-binary-search-tree/)

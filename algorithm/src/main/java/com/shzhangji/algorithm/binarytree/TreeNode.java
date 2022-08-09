@@ -1,7 +1,11 @@
 package com.shzhangji.algorithm.binarytree;
 
+import lombok.ToString;
+
+@ToString
 public class TreeNode {
   int val;
+  @ToString.Exclude
   TreeNode left, right;
 
   TreeNode() {}
