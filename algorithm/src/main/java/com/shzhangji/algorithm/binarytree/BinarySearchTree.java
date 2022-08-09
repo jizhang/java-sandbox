@@ -14,6 +14,9 @@ public class BinarySearchTree {
     bst.print();
     System.out.println(bst.find(12));
     System.out.println(bst.find(13));
+
+    bst.delete(14);
+    bst.print();
   }
 
   TreeNode root;
@@ -51,6 +54,44 @@ public class BinarySearchTree {
       node = node.val > val ? node.left : node.right;
     }
     return null;
+  }
+
+  public void delete(int val) {
+    var node = root;
+    TreeNode parent = null;
+    while (node != null) {
+      if (node.val == val) {
+        break;
+      }
+      parent = node;
+      node = node.val > val ? node.left : node.right;
+    }
+
+    if (node == null) {
+      return;
+    }
+
+    if (node.left != null && node.right != null) {
+      var minNode = node.right;
+      var minNodeParent = node;
+      while (minNode.left != null) {
+        minNodeParent = minNode;
+        minNode = minNode.left;
+      }
+
+      node.val = minNode.val;
+      node = minNode;
+      parent = minNodeParent;
+    }
+
+    TreeNode child = node.left != null ? node.left : node.right;
+    if (parent == null) {
+      root = child;
+    } else if (parent.left == node) {
+      parent.left = child;
+    } else {
+      parent.right = child;
+    }
   }
 
   public void print() {
