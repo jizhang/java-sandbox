@@ -16,7 +16,9 @@ public class BinarySearchTree {
     System.out.println(bst.find(13));
 
     bst.delete(14);
-    bst.print();
+    bst.printTree();
+
+    System.out.println(bst.findSuccessor(8));
   }
 
   TreeNode root;
@@ -106,5 +108,47 @@ public class BinarySearchTree {
     print0(node.left);
     System.out.print(node.val + " ");
     print0(node.right);
+  }
+
+  public TreeNode findSuccessor(int val) {
+    var node = find(val);
+    if (node == null) {
+      return null;
+    }
+
+    if (node.right != null) {
+      var successor = node.right;
+      while (successor.left != null) {
+        successor = successor.left;
+      }
+      return successor;
+    }
+
+    TreeNode successor = null;
+    node = root;
+    while (node != null) {
+      if (node.val > val) {
+        successor = node;
+        node = node.left;
+      } else if (node.val < val) {
+        node = node.right;
+      } else {
+        break;
+      }
+    }
+
+    return successor;
+  }
+
+  public void printTree() {
+    printTree0("", root, false);
+  }
+
+  void printTree0(String prefix, TreeNode n, boolean isLeft) {
+    if (n != null) {
+      System.out.println(prefix + (isLeft ? "|-- " : "\\-- ") + n.val);
+      printTree0(prefix + (isLeft ? "|   " : "    "), n.left, true);
+      printTree0(prefix + (isLeft ? "|   " : "    "), n.right, false);
+    }
   }
 }
