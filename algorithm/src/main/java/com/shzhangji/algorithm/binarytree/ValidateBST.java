@@ -26,7 +26,8 @@ public class ValidateBST {
 
   public boolean isValidBST(TreeNode root) {
     // return validateInorder(root);
-    return validateMinMax(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    // return validateMinMax(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    return validateNode(root, null, null);
   }
 
   TreeNode prev;
@@ -58,5 +59,21 @@ public class ValidateBST {
     }
 
     return validateMinMax(root.left, min, root.val) && validateMinMax(root.right, root.val, max);
+  }
+
+  boolean validateNode(TreeNode root, TreeNode upLeft, TreeNode upRight) {
+    if (root == null) {
+      return true;
+    }
+
+    if (upLeft != null && root.val <= upLeft.val) {
+      return false;
+    }
+
+    if (upRight != null && root.val >= upRight.val) {
+      return false;
+    }
+
+    return validateNode(root.left, upLeft, root) && validateNode(root.right, root, upRight);
   }
 }
