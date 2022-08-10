@@ -1,5 +1,6 @@
 package com.shzhangji.algorithm.string;
 
+// https://leetcode.com/problems/implement-strstr/
 public class StrStr {
   public static void main(String[] args) {
     var obj = new StrStr();
