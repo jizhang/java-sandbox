@@ -73,7 +73,7 @@
 - [ ] Implement a Trie tree with a-z alphabets.
 - [x] [String match with brute force.](https://leetcode.com/problems/implement-strstr/)
 - [x] [Reverse string](https://leetcode.com/problems/reverse-string/)
-- [ ] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
+- [x] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [ ] [String to integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
 
 ## Day 5: Binary tree and heap
