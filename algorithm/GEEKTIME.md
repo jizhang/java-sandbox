@@ -75,6 +75,7 @@
 - [x] [Reverse string](https://leetcode.com/problems/reverse-string/)
 - [x] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [ ] [String to integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
+- [x] [Valid palindrome](https://leetcode.com/problems/valid-palindrome/)
 
 ## Day 5: Binary tree and heap
 
