@@ -28,7 +28,7 @@
 - [ ] Implement linked list based stack.
 - [ ] Emulate browser's back and forward function.
 - [ ] [Valid parentheses](https://leetcode.com/problems/valid-parentheses/)
-- [ ] [Longest valid parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
+- [x] [Longest valid parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
 - [ ] [Evaluate reverse Polish notation](https://leetcode.com/problems/evaluate-reserve-polish-notation/)
 
 ### Queue
@@ -71,7 +71,7 @@
 ### String
 
 - [ ] Implement a Trie tree with a-z alphabets.
-- [ ] [String match with brute force.](https://leetcode.com/problems/implement-strstr/)
+- [x] [String match with brute force.](https://leetcode.com/problems/implement-strstr/)
 - [ ] [Reverse string](https://leetcode.com/problems/reverse-string/)
 - [ ] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [ ] [String to integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
