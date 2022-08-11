@@ -13,61 +13,41 @@ public class MyCircularDeque {
     System.out.println(myCircularDeque.deleteLast());   // return True
     System.out.println(myCircularDeque.insertFront(4)); // return True
     System.out.println(myCircularDeque.getFront());     // return 4
-    System.out.println("---");
-
-    myCircularDeque = new MyCircularDeque(3);
-    System.out.println(myCircularDeque.insertFront(9)); // return True
-    System.out.println(myCircularDeque.getRear());      // return 9
-    System.out.println(myCircularDeque.insertFront(9)); // return True
-    System.out.println(myCircularDeque.getRear());      // return 9
-    System.out.println(myCircularDeque.insertLast(5));  // return True
-    System.out.println(myCircularDeque.getFront());     // return 9
-    System.out.println(myCircularDeque.getRear());      // return 5
-    System.out.println(myCircularDeque.getFront());     // return 9
-    System.out.println(myCircularDeque.insertLast(8));  // return False
-    System.out.println(myCircularDeque.deleteLast());   // return True
-    System.out.println(myCircularDeque.getFront());     // return 9
   }
 
   int[] data;
-  int head, tail, count, maxCount;
+  int head, tail, count;
 
   public MyCircularDeque(int k) {
-    assert k >= 1;
     data = new int[k];
-    head = 0;
-    tail = 0;
-    count = 0;
-    maxCount = k;
   }
 
   public boolean insertFront(int value) {
-    if (count == maxCount) return false;
-    if (count >= 1 && --head == -1) head = data.length - 1;
-    data[head] = value;
+    if (count == data.length) return false;
+    data[head = dec(head)] = value;
     ++count;
     return true;
   }
 
   public boolean insertLast(int value) {
-    if (count == maxCount) return false;
-    if (count >= 1 && ++tail == data.length) tail = 0;
+    if (count == data.length) return false;
     data[tail] = value;
     ++count;
+    tail = inc(tail);
     return true;
   }
 
   public boolean deleteFront() {
     if (count == 0) return false;
-    if (count > 1 && ++head == data.length) head = 0;
+    head = inc(head);
     --count;
     return true;
   }
 
   public boolean deleteLast() {
     if (count == 0) return false;
-    if (count > 1 && --tail == -1) tail = data.length - 1;
     --count;
+    tail = dec(tail);
     return true;
   }
 
@@ -76,7 +56,7 @@ public class MyCircularDeque {
   }
 
   public int getRear() {
-    return count == 0 ? -1 : data[tail];
+    return count == 0 ? -1 : data[dec(tail)];
   }
 
   public boolean isEmpty() {
@@ -84,7 +64,15 @@ public class MyCircularDeque {
   }
 
   public boolean isFull() {
-    return count == maxCount;
+    return count == data.length;
+  }
+
+  int inc(int n) {
+    return n == data.length - 1 ? 0 : n + 1;
+  }
+
+  int dec(int n) {
+    return n == 0 ? data.length - 1 : n - 1;
   }
 }
 
