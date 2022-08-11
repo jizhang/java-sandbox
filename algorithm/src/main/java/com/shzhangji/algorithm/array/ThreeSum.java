@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.array;
+package com.shzhangji.algorithm.array;
 
 import java.util.List;
 
