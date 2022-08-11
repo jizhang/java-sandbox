@@ -1,4 +1,4 @@
-package com.shzhangji.algorithm.array;
+package com.shzhangji.algorithm.stack;
 
 import java.util.ArrayDeque;
 
