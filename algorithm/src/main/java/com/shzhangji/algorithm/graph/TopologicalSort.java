@@ -71,9 +71,9 @@ public class TopologicalSort {
 
   static void dfs(int vertex, List<List<Integer>> inverted, boolean[] visited) {
     for (var i : inverted.get(vertex)) {
-     if (visited[i]) continue;
-     visited[i] = true;
-     dfs(i, inverted, visited);
+      if (visited[i]) continue;
+      visited[i] = true;
+      dfs(i, inverted, visited);
     }
     System.out.print(vertex + " ");
   }
