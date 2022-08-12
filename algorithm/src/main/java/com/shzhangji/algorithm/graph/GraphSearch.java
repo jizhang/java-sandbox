@@ -21,6 +21,7 @@ public class GraphSearch {
     graph.addEdge(5, 7);
     graph.addEdge(6, 7);
     bfs(graph, 0, 6);
+    dfs(graph, 0, 6);
   }
 
   static void bfs(Graph graph, int start, int target) {
@@ -60,6 +61,35 @@ public class GraphSearch {
       print0(prev, start, prev[target]);
     }
     System.out.print(target + " ");
+  }
+
+  static boolean found;
+
+  static void dfs(Graph graph, int start, int target) {
+    found = false;
+    var visited = new boolean[graph.vertexCount];
+    var prev = new int[graph.vertexCount];
+    Arrays.fill(prev, -1);
+    dfs0(graph, start, target, visited, prev);
+    if (found) {
+      print(prev, start, target);
+    } else {
+      System.out.println("Not found.");
+    }
+  }
+
+  static void dfs0(Graph graph, int current, int target, boolean[] visited, int[] prev) {
+    if (found) return;
+    visited[current] = true;
+    if (current == target) {
+      found = true;
+      return;
+    }
+    for (var next : graph.adjacencyList.get(current)) {
+      if (visited[next]) continue;
+      prev[next] = current;
+      dfs0(graph, next, target, visited, prev);
+    }
   }
 
   static class Graph {

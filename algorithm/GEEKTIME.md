@@ -97,8 +97,8 @@
 
 ## Day 6: Graph
 
-- [ ] Implement directed graph, undirected graph, weighted graph, unweighted graph, use either adjacency matrix or adjacency list.
-- [ ] Depth first search, breadth first search.
+- [ ] Implement directed graph, undirected graph, weighted graph, unweighted graph, use adjacency matrix or ~~adjacency list~~.
+- [x] Depth first search, breadth first search.
 - [ ] Dijkstra, A\*.
 - [x] Topological sort with Kahn & DFS.
 - [x] [Course schedule](https://leetcode.com/problems/course-schedule/)
