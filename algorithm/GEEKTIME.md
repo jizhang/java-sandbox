@@ -115,7 +115,7 @@
 
 ### Divide and conquer
 
-- [ ] Count reverse pairs.
+- [x] [Reverse pairs](https://leetcode.com/problems/reverse-pairs/)
 
 ### Dynamic programming
 
