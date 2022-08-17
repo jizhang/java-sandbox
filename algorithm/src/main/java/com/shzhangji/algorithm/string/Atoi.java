@@ -15,33 +15,25 @@ public class Atoi {
     while (i < s.length() && s.charAt(i) == ' ') ++i;
     if (i == s.length()) return 0; // "", " "
 
-    boolean isNegative = false;
+    int sign = 1;
     if (s.charAt(i) == '-') {
-      isNegative = true;
+      sign = -1;
       ++i;
     } else if (s.charAt(i) == '+') {
       ++i;
     }
     if (i == s.length()) return 0; // "-"
 
-    while (i < s.length() && s.charAt(i) == '0') ++i;
-
-    int start = i;
-    while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9') ++i;
-    if (start == i) return 0; // "-a"
-
-    if (i - start > 10) return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+    while (i < s.length() && s.charAt(i) == '0') ++i; // "-001"
 
     long result = 0;
-    int j = 0;
-    while (j < i - start) {
-      result += (s.charAt(start + j) - 48) * Math.pow(10, i - start - j - 1);
-      ++j;
+    while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+      result = result * 10 + (s.charAt(i) - '0') * sign;
+      if (result >= Integer.MAX_VALUE) return Integer.MAX_VALUE;
+      if (result <= Integer.MIN_VALUE) return Integer.MIN_VALUE;
+      ++i;
     }
 
-    result *= isNegative ? -1 : 1;
-    if (result > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-    if (result < Integer.MIN_VALUE) return Integer.MIN_VALUE;
     return (int) result;
   }
 }
