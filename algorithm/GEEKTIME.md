@@ -70,7 +70,7 @@
 
 ### String
 
-- [ ] Implement a Trie tree with a-z alphabets.
+- [x] [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
 - [x] [String match with brute force.](https://leetcode.com/problems/implement-strstr/)
 - [x] [Reverse string](https://leetcode.com/problems/reverse-string/)
 - [x] [Reverse words in a string](https://leetcode.com/problems/reverse-words-in-a-string/)
