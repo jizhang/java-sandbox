@@ -120,7 +120,7 @@
 ### Dynamic programming
 
 - [x] 0-1 knapsack problem
-- [ ] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
+- [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
 - [ ] Levenshtein distance
 - [ ] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [ ] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)

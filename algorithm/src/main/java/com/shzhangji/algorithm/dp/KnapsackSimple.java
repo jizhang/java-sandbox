@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.dp;
+package com.shzhangji.algorithm.dp;
 
 public class KnapsackSimple {
   public static void main(String[] args) {

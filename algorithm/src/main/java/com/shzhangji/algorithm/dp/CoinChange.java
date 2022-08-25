@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.dp;
+package com.shzhangji.algorithm.dp;
 
 // https://leetcode.com/problems/coin-change/
 public class CoinChange {
