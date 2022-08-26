@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.recursion;
+package com.shzhangji.algorithm.recursion;
 
 public class Fibonacci {
   public static void main(String[] args) {

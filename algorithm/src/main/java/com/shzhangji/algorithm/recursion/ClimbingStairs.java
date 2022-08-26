@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.recursion;
+package com.shzhangji.algorithm.recursion;
 
 // https://leetcode.com/problems/climbing-stairs/
 public class ClimbingStairs {
