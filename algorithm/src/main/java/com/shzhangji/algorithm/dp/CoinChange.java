@@ -1,6 +1,7 @@
 package com.shzhangji.algorithm.dp;
 
 // https://leetcode.com/problems/coin-change/
+// https://leetcode.com/problems/coin-change/solution/
 public class CoinChange {
   public static void main(String[] args) {
     var obj = new CoinChange();
