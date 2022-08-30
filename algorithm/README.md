@@ -127,5 +127,5 @@
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [ ] [Best time to buy and sell stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
-- [ ] [Triangle](https://leetcode.com/problems/triangle/)
+- [x] [Triangle](https://leetcode.com/problems/triangle/)
 - [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
