@@ -121,9 +121,9 @@
 
 - [x] 0-1 knapsack problem
 - [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
-- [ ] Levenshtein distance
+- [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
 - [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
-- [ ] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+- [x] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [ ] [Best time to buy and sell stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
