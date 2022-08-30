@@ -125,7 +125,8 @@
 - [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [x] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
-- [ ] [Best time to buy and sell stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- [ ] Stock problems
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [x] [Triangle](https://leetcode.com/problems/triangle/)
 - [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
+- [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)

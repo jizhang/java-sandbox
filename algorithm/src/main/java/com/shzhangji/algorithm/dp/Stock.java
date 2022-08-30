@@ -9,6 +9,16 @@ public class Stock {
   }
 
   public int maxProfit(int[] prices) {
-    return 0;
+    int minPrice = prices[0];
+    int maxProfit = 0;
+    for (int price : prices) {
+      if (price < minPrice) {
+        minPrice = price;
+      }
+      if (price - minPrice > maxProfit) {
+        maxProfit = price - minPrice;
+      }
+    }
+    return maxProfit;
   }
 }
