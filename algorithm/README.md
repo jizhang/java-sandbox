@@ -131,3 +131,5 @@
 - [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 - [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 - [x] [Unique paths](https://leetcode.com/problems/unique-paths/)
+- [x] [Unique binary search tree](https://leetcode.com/problems/unique-binary-search-trees/)
+- [x] [House robber](https://leetcode.com/problems/house-robber/)
