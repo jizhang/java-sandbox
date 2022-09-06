@@ -7,9 +7,42 @@ public class PartitionEqualSubsetSum {
     var obj = new PartitionEqualSubsetSum();
     System.out.println(obj.canPartition(new int[] { 1, 5, 11, 5 })); // true
     System.out.println(obj.canPartition(new int[] { 1, 2, 3, 5 })); // false
+    System.out.println(obj.canPartition(new int[] { 1, 5, 3 })); // false
   }
 
   public boolean canPartition(int[] nums) {
+    return topDown(nums);
+  }
+
+  Boolean[][] memo;
+
+  boolean topDown(int[] nums) {
+    int sum = 0;
+    for (int num : nums) {
+      sum += num;
+    }
+    if (sum % 2 != 0) return false;
+
+    memo = new Boolean[nums.length][sum / 2 + 1];
+    return topDown(nums, nums.length - 1, sum / 2);
+  }
+
+  boolean topDown(int[] nums, int i, int sum) {
+    if (i == 0) return nums[i] == sum;
+    if (memo[i][sum] != null) return memo[i][sum];
+
+    boolean result;
+    if (nums[i] < sum) {
+      result = topDown(nums, i - 1, sum - nums[i]) || topDown(nums, i - 1, sum);
+    } else {
+      result = topDown(nums, i - 1, sum);
+    }
+
+    memo[i][sum] = result;
+    return result;
+  }
+
+  boolean bottomUp(int[] nums) {
     int sum = 0;
     for (int num : nums) {
       sum += num;

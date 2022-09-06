@@ -119,18 +119,25 @@
 
 ### Dynamic programming
 
+#### Knapsack
+
 - [x] 0-1 knapsack problem
+- [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
+
+#### Other
+
 - [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
 - [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
 - [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- [x] [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/)
 - [x] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [ ] Stock problems
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [x] [Triangle](https://leetcode.com/problems/triangle/)
 - [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
-- [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 - [x] [Unique paths](https://leetcode.com/problems/unique-paths/)
 - [x] [Unique binary search tree](https://leetcode.com/problems/unique-binary-search-trees/)
 - [x] [House robber](https://leetcode.com/problems/house-robber/)
 - [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
+- [x] [Word break](https://leetcode.com/problems/word-break/)
