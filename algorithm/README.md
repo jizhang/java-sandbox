@@ -141,3 +141,4 @@
 - [x] [House robber](https://leetcode.com/problems/house-robber/)
 - [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
 - [x] [Word break](https://leetcode.com/problems/word-break/)
+- [x] [Dice throw](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
