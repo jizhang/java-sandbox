@@ -124,13 +124,17 @@
 - [x] 0-1 knapsack problem
 - [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 
+#### LIS
+
+- [x] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+- [ ] [Box stacking](https://leetcode.com/problems/maximum-height-by-stacking-cuboids/)
+
 #### Other
 
 - [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
 - [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
 - [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [x] [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/)
-- [x] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [ ] Stock problems
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
@@ -142,3 +146,4 @@
 - [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
 - [x] [Word break](https://leetcode.com/problems/word-break/)
 - [x] [Dice throw](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
+- [x] [Super egg drop](https://leetcode.com/problems/super-egg-drop/)
