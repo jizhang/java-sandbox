@@ -11,13 +11,29 @@ public class ClimbingStairs {
   }
 
   public int climbStairs(int n) {
-    if (n == 1) return 1;
-    var states = new int[n + 1];
-    states[1] = 1;
-    states[2] = 2;
+    return bottomUp(n);
+  }
+
+  int bottomUp(int n) {
+    var dp = new int[n + 1];
+    dp[1] = 1;
+    dp[2] = 2;
     for (int i = 3; i <= n; ++i) {
-      states[i] = states[i - 1] + states[i - 2];
+      dp[i] = dp[i - 1] + dp[i - 2];
     }
-    return states[n];
+    return dp[n];
+  }
+
+  int topDown(int n) {
+    return topDown(n, new int[n + 1]);
+  }
+
+  int topDown(int n, int[] memo) {
+    if (n == 1) return 1;
+    if (n == 2) return 2;
+    if (memo[n] > 0) return memo[n];
+    int result = topDown(n - 1, memo) + topDown(n - 2, memo);
+    memo[n] = result;
+    return result;
   }
 }
