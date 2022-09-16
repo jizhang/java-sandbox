@@ -16,6 +16,23 @@ public class MinimumPathSum {
   }
 
   public int minPathSum(int[][] grid) {
+    return topDown(grid);
+  }
+
+  int topDown(int[][] grid) {
+    var memo = new Integer[grid.length][grid[0].length];
+    return topDown(grid, 0, 0, memo);
+  }
+
+  int topDown(int[][] grid, int i, int j, Integer[][] memo) {
+    if (i == grid.length - 1 && j == grid[0].length - 1) return grid[i][j];
+    if (i == grid.length || j == grid[0].length) return Integer.MAX_VALUE;
+    if (memo[i][j] != null) return memo[i][j];
+    memo[i][j] = grid[i][j] + Math.min(topDown(grid, i + 1, j, memo), topDown(grid, i, j + 1, memo));
+    return memo[i][j];
+  }
+
+  int bottomUp(int[][] grid) {
     var states = new int[grid.length][grid[0].length];
 
     states[0][0] = grid[0][0];

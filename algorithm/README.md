@@ -128,22 +128,31 @@
 
 - [x] [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [ ] [Box stacking](https://leetcode.com/problems/maximum-height-by-stacking-cuboids/)
+- [x] [House robber](https://leetcode.com/problems/house-robber/)
+- [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
+
+#### Edit distance
+
+- [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
+- [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+
+#### Path sum
+
+- [x] [Triangle](https://leetcode.com/problems/triangle/)
+- [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
+
+#### Uncategorized
+
+- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
+- [x] [Word break](https://leetcode.com/problems/word-break/)
+- [ ] Stock problems
 
 #### Other
 
-- [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
-- [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
-- [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [x] [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/)
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
-- [ ] Stock problems
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
-- [x] [Triangle](https://leetcode.com/problems/triangle/)
-- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 - [x] [Unique paths](https://leetcode.com/problems/unique-paths/)
 - [x] [Unique binary search tree](https://leetcode.com/problems/unique-binary-search-trees/)
-- [x] [House robber](https://leetcode.com/problems/house-robber/)
-- [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
-- [x] [Word break](https://leetcode.com/problems/word-break/)
 - [x] [Dice throw](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
 - [x] [Super egg drop](https://leetcode.com/problems/super-egg-drop/)

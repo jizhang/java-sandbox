@@ -12,6 +12,10 @@ public class LongestCommonSubsequence {
   }
 
   public int longestCommonSubsequence(String text1, String text2) {
+    return topDown(text1, text2);
+  }
+
+  int topDown(String text1, String text2) {
     var memo = new int[text1.length()][text2.length()];
     Arrays.stream(memo).forEach(arr -> Arrays.fill(arr, -1));
     return topDown(text1, text2, 0, 0, memo);

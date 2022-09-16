@@ -1,5 +1,6 @@
 package com.shzhangji.algorithm.dp;
 
+import java.util.Arrays;
 import java.util.List;
 
 // https://leetcode.com/problems/triangle/
@@ -16,25 +17,34 @@ public class Triangle {
   }
 
   public int minimumTotal(List<List<Integer>> triangle) {
-    int rows = triangle.size();
-    var states = new int[rows];
-    states[0] = triangle.get(0).get(0);
-    for (int i = 1; i < rows; ++i) {
-      for (int j = i; j >= 0; --j) { // Iterate backward
-        if (j == 0) {
-          states[j] += triangle.get(i).get(j);
-        } else if (j == i) {
-          states[j] = states[j - 1] + triangle.get(i).get(j);
-        } else {
-          states[j] = Math.min(states[j - 1], states[j]) + triangle.get(i).get(j);
-        }
+    return bottomUp(triangle);
+  }
+
+  // Literally from bottom level to top level.
+  int bottomUp(List<List<Integer>> triangle) {
+    var dp = new int[triangle.size() + 1];
+
+    for (int i = triangle.size() - 1; i >= 0; --i) {
+      for (int j = 0; j <= i; ++j) {
+        dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
       }
     }
 
-    int result = Integer.MAX_VALUE;
-    for (int j = 0; j < rows; ++j) {
-      result = Math.min(result, states[j]);
-    }
+    return dp[0];
+  }
+
+  // DFS
+  int topDown(List<List<Integer>> triangle) {
+    var memo = new int[triangle.size()][triangle.size()];
+    Arrays.stream(memo).forEach(arr -> Arrays.fill(arr, -1));
+    return topDown(triangle, 0, 0, memo);
+  }
+
+  int topDown(List<List<Integer>> triangle, int i, int j, int[][] memo) {
+    if (i == triangle.size()) return 0;
+    if (memo[i][j] != -1) return memo[i][j];
+    int result = triangle.get(i).get(j) + Math.min(topDown(triangle, i + 1, j, memo), topDown(triangle, i + 1, j + 1, memo));
+    memo[i][j] = result;
     return result;
   }
 }
