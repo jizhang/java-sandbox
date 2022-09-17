@@ -122,6 +122,7 @@
 #### Knapsack
 
 - [x] 0-1 knapsack problem
+- [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 
 #### LIS
@@ -150,7 +151,6 @@
 #### Other
 
 - [x] [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/)
-- [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [x] [Unique paths](https://leetcode.com/problems/unique-paths/)
 - [x] [Unique binary search tree](https://leetcode.com/problems/unique-binary-search-trees/)
