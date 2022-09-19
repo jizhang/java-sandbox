@@ -3,18 +3,36 @@ package com.shzhangji.algorithm.dp;
 public class Knapsack {
   public static void main(String[] args) {
     var obj = new Knapsack();
-    System.out.println(obj.bottomUp(
+    System.out.println(obj.knapsack(
       new int[] { 20, 5, 10, 40, 15, 25 },
       new int[] { 1, 2, 3, 8, 7, 4 },
       10)); // 60
-    System.out.println(obj.bottomUp(
+    System.out.println(obj.knapsack(
       new int[] { 55, 10, 47, 5, 4, 50, 8, 61, 85, 87 },
       new int[] { 95, 4, 60, 32, 23, 72, 80, 62, 65, 46 },
       269)); // 295
-    System.out.println(obj.bottomUp(
+    System.out.println(obj.knapsack(
       new int[] { 44, 46, 90, 72, 91, 40, 75, 35, 8, 54, 78, 40, 77, 15, 61, 17, 75, 29, 75, 63 },
       new int[] { 92, 4, 43, 83, 84, 68, 92, 82, 6, 44, 32, 18, 56, 83, 25, 96, 70, 48, 14, 58 },
       878)); // 1024
+  }
+
+  int knapsack(int[] values, int[] weights, int weight) {
+    return topDown(values, weights, weight);
+  }
+
+  int topDown(int[] values, int[] weights, int weight) {
+    return topDown(values, weights, weight, weights.length - 1);
+  }
+
+  int topDown(int[] values, int[] weights, int weight, int i) {
+    if (i == 0) return weights[i] > weight ? 0 : values[i];
+
+    if (weights[i] > weight) {
+      return topDown(values, weights, weight, i - 1);
+    }
+
+    return Math.max(topDown(values, weights, weight, i - 1), values[i] + topDown(values, weights, weight - weights[i], i - 1));
   }
 
   int bottomUp(int[] values, int[] weights, int weight) {
