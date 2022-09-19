@@ -1,5 +1,7 @@
 package com.shzhangji.algorithm.dp;
 
+import java.util.Arrays;
+
 // https://leetcode.com/problems/partition-equal-subset-sum/
 // https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/3jEPRo5PDvx
 public class PartitionEqualSubsetSum {
@@ -11,7 +13,7 @@ public class PartitionEqualSubsetSum {
   }
 
   public boolean canPartition(int[] nums) {
-    return topDown(nums);
+    return bottomUp1D(nums);
   }
 
   Boolean[][] memo;
@@ -71,5 +73,25 @@ public class PartitionEqualSubsetSum {
     }
 
     return states[nums.length - 1][sum / 2];
+  }
+
+  boolean bottomUp1D(int[] nums) {
+    final int sum = Arrays.stream(nums).sum();
+    if (sum % 2 != 0) {
+      return false;
+    }
+
+    var dp = new boolean[sum / 2 + 1];
+    dp[0] = true;
+
+    for (int num : nums) {
+      for (int j = sum / 2; j >= 1; --j) { // Reversed loop
+        if (j >= num) {
+          dp[j] = dp[j] || dp[j - num];
+        }
+      }
+    }
+
+    return dp[sum / 2];
   }
 }
