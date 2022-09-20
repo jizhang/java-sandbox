@@ -1,9 +1,15 @@
 package com.shzhangji.algorithm.dp;
 
+import java.util.Arrays;
+
 // https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
 public class Knapsack {
   public static void main(String[] args) {
     var obj = new Knapsack();
+    System.out.println(obj.knapsack(
+      new int[] { 3, 4, 8, 9, 6},
+      new int[] { 2, 2, 4, 6, 3 },
+      9)); // 60
     System.out.println(obj.knapsack(
       new int[] { 20, 5, 10, 40, 15, 25 },
       new int[] { 1, 2, 3, 8, 7, 4 },
@@ -19,7 +25,7 @@ public class Knapsack {
   }
 
   int knapsack(int[] values, int[] weights, int weight) {
-    return bottomUp(values, weights, weight);
+    return bottomUp1D(values, weights, weight);
   }
 
   int topDown(int[] values, int[] weights, int weight) {
@@ -37,74 +43,32 @@ public class Knapsack {
   }
 
   int bottomUp(int[] values, int[] weights, int weight) {
-    var states = new int[values.length][weight + 1];
-    for (int i = 0; i < values.length; ++i) {
-      for (int j = 0; j <= weight; ++j) {
-        states[i][j] = -1;
-      }
-    }
+    var dp = new int[weights.length + 1][weight + 1];
 
-    states[0][0] = 0;
-    if (weights[0] <= weight) {
-      states[0][weights[0]] = values[0];
-    }
-
-    for (int i = 1; i < values.length; ++i) {
-      for (int j = 0; j <= weight; ++j) {
-        if (states[i - 1][j] >= 0) {
-          states[i][j] = states[i - 1][j];
-        }
-      }
-
-      for (int j = 0; j <= weight - weights[i]; ++j) {
-        if (states[i - 1][j] >= 0) {
-          int value = states[i - 1][j] + values[i];
-          if (value > states[i][j + weights[i]]) {
-            states[i][j + weights[i]] = value;
-          }
+    for (int i = 1; i <= weights.length; ++i) {
+      for (int j = 1; j <= weight; ++j) {
+        if (weights[i - 1] > j) {
+          dp[i][j] = dp[i - 1][j];
+        } else {
+          dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weights[i - 1]] + values[i - 1]);
         }
       }
     }
 
-    int maxValue = -1;
-    for (int j = weight; j >= 0; --j) {
-      if (states[values.length - 1][j] > maxValue) {
-        maxValue = states[values.length - 1][j];
-      }
-    }
-
-    return maxValue;
+    return Arrays.stream(dp[weights.length]).max().orElse(0);
   }
 
   int bottomUp1D(int[] values, int[] weights, int weight) {
-    var states = new int[weight + 1];
-    for (int j = 0; j <= weight; ++j) {
-      states[j] = -1;
-    }
+    var dp = new int[weight + 1];
 
-    states[0] = 0;
-    if (weights[0] <= weight) {
-      states[weights[0]] = values[0];
-    }
-
-    for (int i = 1; i < values.length; ++i) {
-      for (int j = weight - weights[i]; j >= 0; --j) {
-        if (states[j] >= 0) {
-          int value = states[j] + values[i];
-          if (value > states[j + weights[i]]) {
-            states[j + weights[i]] = value;
-          }
+    for (int i = 1; i <= weights.length; ++i) {
+      for (int j = weight; j >= 1; --j) {
+        if (weights[i - 1] <= j) {
+          dp[j] = Math.max(dp[j], dp[j - weights[i - 1]] + values[i - 1]);
         }
       }
     }
 
-    int maxValue = -1;
-    for (int j = weight; j >= 0; --j) {
-      if (states[j] > maxValue) {
-        maxValue = states[j];
-      }
-    }
-
-    return maxValue;
+    return Arrays.stream(dp).max().orElse(0);
   }
 }
