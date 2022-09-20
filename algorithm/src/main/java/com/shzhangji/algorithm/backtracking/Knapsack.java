@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.algorithm.backtracking;
+package com.shzhangji.algorithm.backtracking;
 
 public class Knapsack {
   static int maxValue = Integer.MIN_VALUE;
