@@ -121,7 +121,7 @@
 
 #### Knapsack
 
-- [x] 0-1 knapsack problem
+- [x] [0-1 Knapsack problem](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
 - [x] [Coin change](https://leetcode.com/problems/coin-change/)
 - [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 

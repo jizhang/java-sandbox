@@ -1,5 +1,6 @@
 package com.shzhangji.algorithm.dp;
 
+// https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
 public class Knapsack {
   public static void main(String[] args) {
     var obj = new Knapsack();
@@ -18,7 +19,7 @@ public class Knapsack {
   }
 
   int knapsack(int[] values, int[] weights, int weight) {
-    return topDown(values, weights, weight);
+    return bottomUp(values, weights, weight);
   }
 
   int topDown(int[] values, int[] weights, int weight) {
@@ -26,7 +27,7 @@ public class Knapsack {
   }
 
   int topDown(int[] values, int[] weights, int weight, int i) {
-    if (i == 0) return weights[i] > weight ? 0 : values[i];
+    if (i == 0) return weights[i] > weight ? 0 : values[i]; // if (i == -1) return 0;
 
     if (weights[i] > weight) {
       return topDown(values, weights, weight, i - 1);
