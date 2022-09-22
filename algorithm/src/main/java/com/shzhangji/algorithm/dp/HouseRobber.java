@@ -14,17 +14,6 @@ public class HouseRobber {
     return bottomUp(nums);
   }
 
-  int bottomUp(int[] nums) {
-    if (nums.length == 1) return nums[0];
-    var dp = new int[nums.length + 1];
-    dp[1] = nums[0];
-    dp[2] = Math.max(nums[0], nums[1]);
-    for (int i = 3; i <= nums.length; ++i) {
-      dp[i] = Math.max(dp[i - 2] + nums[i - 1], dp[i - 1]);
-    }
-    return dp[nums.length];
-  }
-
   int topDown(int[] nums) {
     var memo = new int[nums.length + 1];
     Arrays.fill(memo, -1);
@@ -37,5 +26,16 @@ public class HouseRobber {
     if (memo[i] != -1) return memo[i];
     memo[i] = Math.max(topDown(nums, i - 2, memo) + nums[i - 1], topDown(nums, i - 1, memo));
     return memo[i];
+  }
+
+  int bottomUp(int[] nums) {
+    if (nums.length == 1) return nums[0];
+    var dp = new int[nums.length + 1];
+    dp[1] = nums[0];
+    dp[2] = Math.max(nums[0], nums[1]);
+    for (int i = 3; i <= nums.length; ++i) {
+      dp[i] = Math.max(dp[i - 2] + nums[i - 1], dp[i - 1]);
+    }
+    return dp[nums.length];
   }
 }

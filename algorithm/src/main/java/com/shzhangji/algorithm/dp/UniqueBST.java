@@ -13,18 +13,6 @@ public class UniqueBST {
     return bottomUp(n);
   }
 
-  int bottomUp(int n) {
-    var dp = new int[n + 1];
-    dp[1] = 1;
-    for (int i = 2; i <= n; ++i) {
-      for (int j = 1; j <= i; ++j) {
-        if (j == 1 || j == i) dp[i] += dp[i - 1];
-        else dp[i] += dp[j - 1] * dp[i - j];
-      }
-    }
-    return dp[n];
-  }
-
   int topDown(int n) {
     return topDown(n, new int[n + 1]);
   }
@@ -39,5 +27,17 @@ public class UniqueBST {
     }
     memo[n] = result;
     return result;
+  }
+
+  int bottomUp(int n) {
+    var dp = new int[n + 1];
+    dp[1] = 1;
+    for (int i = 2; i <= n; ++i) {
+      for (int j = 1; j <= i; ++j) {
+        if (j == 1 || j == i) dp[i] += dp[i - 1];
+        else dp[i] += dp[j - 1] * dp[i - j];
+      }
+    }
+    return dp[n];
   }
 }

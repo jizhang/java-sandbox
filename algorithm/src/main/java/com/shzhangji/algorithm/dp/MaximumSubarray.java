@@ -26,13 +26,19 @@ public class MaximumSubarray {
     return max;
   }
 
-  int kadane(int[] nums) {
-    int result = nums[0], max = nums[0];
-    for (int i = 1; i < nums.length; ++i) {
-      max = Math.max(max + nums[i], nums[i]);
-      if (max > result) result = max;
-    }
-    return result;
+  int max;
+
+  int topDown(int[] nums) {
+    max = nums[0];
+    topDown(nums, nums.length - 1);
+    return max;
+  }
+
+  int topDown(int[] nums, int i) {
+    if (i == 0) return nums[0];
+    int sum = Math.max(topDown(nums, i - 1) + nums[i], nums[i]);
+    if (sum > max) max = sum;
+    return sum;
   }
 
   int bottomUp(int[] nums) {
@@ -49,18 +55,12 @@ public class MaximumSubarray {
     return max;
   }
 
-  int max;
-
-  int topDown(int[] nums) {
-    max = nums[0];
-    topDown(nums, nums.length - 1);
-    return max;
-  }
-
-  int topDown(int[] nums, int i) {
-    if (i == 0) return nums[0];
-    int sum = Math.max(topDown(nums, i - 1) + nums[i], nums[i]);
-    if (sum > max) max = sum;
-    return sum;
+  int kadane(int[] nums) {
+    int result = nums[0], max = nums[0];
+    for (int i = 1; i < nums.length; ++i) {
+      max = Math.max(max + nums[i], nums[i]);
+      if (max > result) result = max;
+    }
+    return result;
   }
 }

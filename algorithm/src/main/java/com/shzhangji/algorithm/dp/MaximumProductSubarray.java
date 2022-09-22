@@ -9,6 +9,10 @@ public class MaximumProductSubarray {
   }
 
   public int maxProduct(int[] nums) {
+    return topDown(nums);
+  }
+
+  int topDown(int[] nums) {
     return 0;
   }
 }

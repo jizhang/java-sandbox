@@ -14,21 +14,22 @@ public class SuperEggDrop {
     return bottomUpQuick(k, n);
   }
 
-  int bottomUpQuick(int k, int n) {
-    // dp[m][k] means with m moves and k eggs, the maximum number of floors that can be checked.
-    var dp = new int[n + 1][k + 1];
+  int topDown(int k, int n) {
+    return topDown(k, n, new int[k + 1][n + 1]);
+  }
 
+  int topDown(int k, int n, int[][] memo) {
+    if (k == 1 || n <= 1) return n;
+    if (memo[k][n] > 0) return memo[k][n];
+
+    int result = n;
     for (int i = 1; i <= n; ++i) {
-      for (int j = 1; j <= k; ++j) {
-        dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j] + 1;
-      }
-
-      if (dp[i][k] >= n) {
-        return i;
-      }
+      int tmp = Math.max(topDown(k - 1, i - 1, memo), topDown(k, n - i, memo)) + 1;
+      if (tmp < result) result = tmp;
     }
 
-    return n;
+    memo[k][n] = result;
+    return result;
   }
 
   int bottomUp(int k, int n) {
@@ -50,21 +51,20 @@ public class SuperEggDrop {
     return dp[k][n];
   }
 
-  int topDown(int k, int n) {
-    return topDown(k, n, new int[k + 1][n + 1]);
-  }
+  int bottomUpQuick(int k, int n) {
+    // dp[m][k] means with m moves and k eggs, the maximum number of floors that can be checked.
+    var dp = new int[n + 1][k + 1];
 
-  int topDown(int k, int n, int[][] memo) {
-    if (k == 1 || n <= 1) return n;
-    if (memo[k][n] > 0) return memo[k][n];
-
-    int result = n;
     for (int i = 1; i <= n; ++i) {
-      int tmp = Math.max(topDown(k - 1, i - 1, memo), topDown(k, n - i, memo)) + 1;
-      if (tmp < result) result = tmp;
+      for (int j = 1; j <= k; ++j) {
+        dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j] + 1;
+      }
+
+      if (dp[i][k] >= n) {
+        return i;
+      }
     }
 
-    memo[k][n] = result;
-    return result;
+    return n;
   }
 }
