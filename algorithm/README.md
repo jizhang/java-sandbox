@@ -139,6 +139,7 @@
 - [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
 - [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [x] [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/)
+- [x] [Longest palindromic substring](https://leetcode.com/problems/longest-palindromic-substring/)
 
 #### Path sum
 
