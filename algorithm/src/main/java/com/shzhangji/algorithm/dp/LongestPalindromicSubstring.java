@@ -9,10 +9,12 @@ public class LongestPalindromicSubstring {
     System.out.println(obj.longestPalindrome("cbbd")); // bb
     System.out.println(obj.longestPalindrome("aacabdkacaa")); // aca
     System.out.println(obj.longestPalindrome("aaaaa")); // aaaaa
+    System.out.println(obj.longestPalindrome("aacabdkacaa")); // aca
+    System.out.println(obj.longestPalindrome("aaaa")); // aaaa
   }
 
   public String longestPalindrome(String s) {
-    return topDown(s);
+    return bottomUp2(s);
   }
 
   String topDown(String s) {
@@ -67,6 +69,35 @@ public class LongestPalindromicSubstring {
           if (dp[i][j] && len > maxLen) {
             start = i;
             maxLen = len;
+          }
+        }
+      }
+    }
+
+    return s.substring(start, start + maxLen);
+  }
+
+  String bottomUp2(String s) {
+    var dp = new boolean[s.length()][s.length()];
+    int start = 0, maxLen = 1;
+
+    for (int i = s.length() - 1; i >= 0; --i) { // Reversed loop
+      dp[i][i] = true; // len = 1
+
+      if (i < s.length() - 1 && s.charAt(i) == s.charAt(i + 1)) {
+        dp[i][i + 1] = true; // len = 2
+        if (maxLen < 2) {
+          start = i;
+          maxLen = 2;
+        }
+      }
+
+      for (int j = i + 2; j < s.length(); ++j) {
+        if (s.charAt(i) == s.charAt(j)) {
+          dp[i][j] = dp[i + 1][j - 1];
+          if (dp[i][j] && j - i + 1 > maxLen) {
+            start = i;
+            maxLen = j - i + 1;
           }
         }
       }
