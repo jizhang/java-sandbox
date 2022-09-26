@@ -9,7 +9,30 @@ public class EditDistance {
   }
 
   public int minDistance(String word1, String word2) {
-    var states = new int[word1.length() + 1][word2.length() + 1];
+    return topDown(word1, word2);
+  }
+
+  int topDown(String word1, String word2) {
+    var memo = new Integer[word1.length()][word2.length()];
+    return topDown(word1, word2, 0, 0, memo);
+  }
+
+  int topDown(String word1, String word2, int i, int j, Integer[][] memo) {
+    if (i == word1.length()) return word2.length() - j;
+    if (j == word2.length()) return word1.length() - i;
+    if (memo[i][j] != null) return memo[i][j];
+
+    if (word1.charAt(i) == word2.charAt(j)) {
+      memo[i][j] = topDown(word1, word2, i + 1, j + 1, memo);
+    } else {
+      var t = Math.min(topDown(word1, word2, i + 1, j, memo), topDown(word1, word2, i, j + 1, memo));
+      memo[i][j] = Math.min(t, topDown(word1, word2, i + 1, j + 1, memo)) + 1;
+    }
+    return memo[i][j];
+  }
+
+  int bottomUp(String word1, String word2) {
+    var states = new int[word1.length() + 1][word2.length() + 1]; // With sentinel
     for (int i = 1; i <= word1.length(); ++i) {
       states[i][0] = states[i - 1][0] + 1;
     }
