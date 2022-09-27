@@ -41,7 +41,7 @@ public class LongestIncreasingSubsequence {
   }
 
   int bottomUp(int[] nums) {
-    var states = new int[nums.length];
+    var states = new int[nums.length]; // 1D array
     Arrays.fill(states, 1);
 
     for (int i = 1; i < nums.length; ++i) {

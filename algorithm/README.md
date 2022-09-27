@@ -132,7 +132,7 @@
 - [x] [House robber](https://leetcode.com/problems/house-robber/)
 - [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
 - [x] [Unique binary search tree](https://leetcode.com/problems/unique-binary-search-trees/)
-- [ ] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
+- [x] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
 
 #### Edit distance
 
