@@ -133,8 +133,9 @@
 - [x] [Maximum subarray](https://leetcode.com/problems/maximum-subarray/)
 - [x] [Unique binary search tree](https://leetcode.com/problems/unique-binary-search-trees/)
 - [x] [Maximum product subarray](https://leetcode.com/problems/maximum-product-subarray/)
+- [x] [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
 
-#### Edit distance
+#### Edit distance (LCS)
 
 - [x] [Edit distance](https://leetcode.com/problems/edit-distance/)
 - [x] [Longest common subsequence](https://leetcode.com/problems/longest-common-subsequence/)
