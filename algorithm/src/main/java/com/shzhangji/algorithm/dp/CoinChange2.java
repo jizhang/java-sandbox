@@ -1,7 +1,5 @@
 package com.shzhangji.algorithm.dp;
 
-import java.util.Arrays;
-
 // https://leetcode.com/problems/coin-change-ii/
 public class CoinChange2 {
   public static void main(String[] args) {
@@ -22,7 +20,9 @@ public class CoinChange2 {
   }
 
   int topDown(int amount, int[] coins, int i, Integer[][] memo) {
-    if (i == -1) return amount == 0 ? 1 : 0;
+    // if (i == 0) return amount % coins[i] == 0 ? 1 : 0;
+    if (amount == 0) return 1;
+    if (i == -1) return 0;
     if (memo[i][amount] != null) return memo[i][amount];
 
     int result = topDown(amount, coins, i - 1, memo);

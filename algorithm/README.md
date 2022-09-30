@@ -126,6 +126,7 @@
 - [x] [Coin change 2](https://leetcode.com/problems/coin-change-ii/)
 - [x] [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 - [x] [Target sum](https://leetcode.com/problems/target-sum/)
+- [x] [Ones and zeroes](https://leetcode.com/problems/ones-and-zeroes/)
 
 #### LIS
 
