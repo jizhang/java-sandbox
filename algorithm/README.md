@@ -148,6 +148,8 @@
 
 #### Path sum
 
+- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
+- [x] [Min cost climbing stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
 - [x] [Triangle](https://leetcode.com/problems/triangle/)
 - [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
 - [x] [Unique paths](https://leetcode.com/problems/unique-paths/)
@@ -155,7 +157,6 @@
 - [x] [Super egg drop](https://leetcode.com/problems/super-egg-drop/)
 
 #### Uncategorized
-
-- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 - [x] [Word break](https://leetcode.com/problems/word-break/)
 - [x] [Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- [ ] [Burst balloons](https://leetcode.com/problems/burst-balloons/)
