@@ -10,7 +10,7 @@ public class HeapSort {
   }
 
   static void heapSort(int[] nums) {
-    buildHeap(nums);
+    buildHeap(nums); // Max heap
     for (int i = nums.length - 1; i > 1; --i) {
       swap(nums, 1, i);
       heapify(nums, i - 1, 1);
@@ -24,7 +24,7 @@ public class HeapSort {
   }
 
   static void heapify(int[] nums, int n, int i) {
-    while (true) {
+    while (true) { // From top
       int maxPos = i;
       int left = i * 2, right = i * 2 + 1;
       if (left <= n && nums[maxPos] < nums[left]) maxPos = left;

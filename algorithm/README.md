@@ -148,13 +148,17 @@
 
 #### Path sum
 
-- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 - [x] [Min cost climbing stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
 - [x] [Triangle](https://leetcode.com/problems/triangle/)
 - [x] [Minimum path sum](https://leetcode.com/problems/minimum-path-sum/)
+- [x] [Super egg drop](https://leetcode.com/problems/super-egg-drop/)
+
+### Distinct ways
+
+- [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 - [x] [Unique paths](https://leetcode.com/problems/unique-paths/)
 - [x] [Dice throw](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
-- [x] [Super egg drop](https://leetcode.com/problems/super-egg-drop/)
+- [x] [Knight probability](https://leetcode.com/problems/knight-probability-in-chessboard/)
 
 #### Uncategorized
 - [x] [Word break](https://leetcode.com/problems/word-break/)
