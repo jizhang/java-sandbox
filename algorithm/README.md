@@ -29,7 +29,7 @@
 - [ ] Emulate browser's back and forward function.
 - [x] [Valid parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [x] [Longest valid parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
-- [ ] [Evaluate reverse Polish notation](https://leetcode.com/problems/evaluate-reserve-polish-notation/)
+- [x] [Evaluate reverse Polish notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 
 ### Queue
 
