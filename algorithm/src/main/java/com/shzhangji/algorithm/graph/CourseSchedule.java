@@ -9,6 +9,7 @@ public class CourseSchedule {
     System.out.println(canFinish(2, new int[][] { { 1, 0 }, { 0, 1 } }));
   }
 
+  // Kahn
   static boolean canFinish(int numCourses, int[][] prerequisites) {
     var inDegree = new int[numCourses];
     for (var prerequisite : prerequisites) {
