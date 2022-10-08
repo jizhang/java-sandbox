@@ -42,8 +42,8 @@
 ### Recursion
 
 - [x] Fibonacci f(n) = f(n-1) + f(n - 2)
-- [ ] Factorial n!
-- [ ] Permutation
+- [x] Factorial n!
+- [x] [Permutation](https://leetcode.com/problems/permutations/)
 - [x] [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)
 
 ## Day 3: Sort and binary search
@@ -164,3 +164,4 @@
 - [x] [Word break](https://leetcode.com/problems/word-break/)
 - [x] [Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [ ] [Burst balloons](https://leetcode.com/problems/burst-balloons/)
+- [x] [Minimum cost tree from leaf values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/)
