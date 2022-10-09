@@ -50,7 +50,7 @@
 
 ### Sort
 
-- [ ] Implement ~~merge sort~~, quick sort, insertion sort, bubble sort, selection sort.
+- [x] Implement ~~merge sort, quick sort, insertion sort, bubble sort, selection sort~~.
 - [x] [Kth largest element in an array, O(n)](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 
 ### Binary search
