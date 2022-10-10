@@ -4,8 +4,8 @@
 
 ### Array
 
-- [ ] Implement an array that supports dynamic expansion.
-- [ ] Implement a fixed-sized sorted array, that supports add, delete and update.
+- [x] Implement an array that supports dynamic expansion.
+- [x] Implement a fixed-sized sorted array, that supports add, delete and update.
 - [x] [Merge sorted array](https://leetcode.com/problems/merge-sorted-array/)
 - [x] [Three sum](https://leetcode.com/problems/3sum/)
 - [ ] [Majority element](https://leetcode.com/problems/majority-element/)
