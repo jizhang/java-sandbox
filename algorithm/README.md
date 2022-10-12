@@ -8,7 +8,7 @@
 - [x] Implement a fixed-sized sorted array, that supports add, delete and update.
 - [x] [Merge sorted array](https://leetcode.com/problems/merge-sorted-array/)
 - [x] [Three sum](https://leetcode.com/problems/3sum/)
-- [ ] [Majority element](https://leetcode.com/problems/majority-element/)
+- [x] [Majority element](https://leetcode.com/problems/majority-element/)
 - [ ] [Missing positive](https://leetcode.com/problems/first-missing-positive/)
 
 ### Linked list
