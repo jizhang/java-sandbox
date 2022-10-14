@@ -24,9 +24,9 @@
 
 ### Stack
 
-- [ ] Implement array based stack.
-- [ ] Implement linked list based stack.
-- [ ] Emulate browser's back and forward function.
+- [x] Implement array based stack.
+- [x] Implement linked list based stack.
+- [x] [Design browser history](https://leetcode.com/problems/design-browser-history/)
 - [x] [Valid parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [x] [Longest valid parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
 - [x] [Evaluate reverse Polish notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
