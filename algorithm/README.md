@@ -33,11 +33,11 @@
 
 ### Queue
 
-- [ ] Implement array based queue.
-- [ ] Implement linked list based queue.
-- [ ] Implement circular queue.
+- [x] Implement array based queue.
+- [x] Implement linked list based queue.
+- [x] Implement circular queue.
 - [x] [Design circular deque](https://leetcode.com/problems/design-circular-deque/)
-- [ ] [Sliding window maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- [x] [Sliding window maximum](https://leetcode.com/problems/sliding-window-maximum/)
 
 ### Recursion
 
