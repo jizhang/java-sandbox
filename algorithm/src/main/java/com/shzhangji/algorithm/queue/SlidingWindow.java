@@ -13,7 +13,7 @@ public class SlidingWindow {
 
   public int[] maxSlidingWindow(int[] nums, int k) {
     var result = new int[nums.length - k + 1];
-    var deque = new ArrayDeque<Integer>();
+    var deque = new ArrayDeque<Integer>(); // Store indices, not numbers.
     for (int i = 0; i < nums.length; ++i) {
       if (!deque.isEmpty() && deque.getFirst() == i - k) deque.removeFirst();
       while (!deque.isEmpty() && nums[deque.getLast()] < nums[i]) deque.removeLast();
