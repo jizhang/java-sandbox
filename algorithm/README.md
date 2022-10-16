@@ -87,7 +87,7 @@
 - [x] [Invert binary tree](https://leetcode.com/problems/invert-binary-tree/)
 - [x] [Maximum depth of binary tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [x] [Validate binary search tree](https://leetcode.com/problems/validate-binary-search-tree/)
-- [ ] [Path sum](https://leetcode.com/problems/path-sum/)
+- [x] [Path sum](https://leetcode.com/problems/path-sum/)
 
 ### Heap
 
