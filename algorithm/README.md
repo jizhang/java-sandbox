@@ -91,7 +91,7 @@
 
 ### Heap
 
-- [ ] Implement ~~min-heap~~, max-heap, priority queue.
+- [x] Implement ~~min-heap, max-heap~~, priority queue.
 - [x] Heap sort.
 - [x] [Kth largest element in a stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
 
