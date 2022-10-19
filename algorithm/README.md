@@ -111,7 +111,7 @@
 
 - [x] [Eight queens](https://leetcode.com/problems/n-queens/)
 - [x] 0-1 knapsack problem
-- [ ] [Regular expression matching](https://leetcode.com/problems/regular-expression-matching/)
+- [x] [Regular expression matching](https://leetcode.com/problems/regular-expression-matching/)
 
 ### Divide and conquer
 
