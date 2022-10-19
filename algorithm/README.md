@@ -103,7 +103,7 @@
 - [x] Topological sort with Kahn & DFS.
 - [x] [Course schedule](https://leetcode.com/problems/course-schedule/)
 - [x] [Number of islands](https://leetcode.com/problems/number-of-islands/)
-- [ ] [Valid sudoku](https://leetcode.com/problems/valid-sudoku/)
+- [x] [Valid sudoku](https://leetcode.com/problems/valid-sudoku/)
 
 ## Day 7: Greedy, divide and conquer, backtracking, dynamic programming
 
