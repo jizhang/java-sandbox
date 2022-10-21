@@ -1,4 +1,4 @@
-package com.shzhangji.algorithm.search;
+package com.shzhangji.algorithm.binarysearch;
 
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
 public class SearchRotated {

@@ -1,4 +1,4 @@
-package com.shzhangji.algorithm.search;
+package com.shzhangji.algorithm.binarysearch;
 
 public class BinarySearchVariants {
   public static void main(String[] args) {
