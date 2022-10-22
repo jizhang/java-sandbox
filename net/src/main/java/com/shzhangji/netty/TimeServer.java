@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.netty;
+package com.shzhangji.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -9,10 +9,10 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class EchoServer {
+public class TimeServer {
   private int port;
 
-  public EchoServer(int port) {
+  public TimeServer(int port) {
     this.port = port;
   }
 
@@ -22,15 +22,15 @@ public class EchoServer {
     try {
       ServerBootstrap b = new ServerBootstrap();
       b.group(bossGroup, workerGroup)
-          .channel(NioServerSocketChannel.class)
-          .childHandler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            public void initChannel(SocketChannel ch) throws Exception {
-              ch.pipeline().addLast(new EchoServerHandler());
-            }
-          })
-          .option(ChannelOption.SO_BACKLOG, 128)
-          .childOption(ChannelOption.SO_KEEPALIVE, true);
+        .channel(NioServerSocketChannel.class)
+        .childHandler(new ChannelInitializer<SocketChannel>() {
+          @Override
+          public void initChannel(SocketChannel ch) throws Exception {
+            ch.pipeline().addLast(new TimeEncoder(), new TimeServerHandler());
+          }
+        })
+        .option(ChannelOption.SO_BACKLOG, 128)
+        .childOption(ChannelOption.SO_KEEPALIVE, true);
 
       ChannelFuture f = b.bind(port).sync();
       f.channel().closeFuture().sync();
@@ -46,6 +46,6 @@ public class EchoServer {
       port = Integer.parseInt(args[0]);
     }
 
-    new EchoServer(port).run();
+    new TimeServer(port).run();
   }
 }

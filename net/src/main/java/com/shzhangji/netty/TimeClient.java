@@ -1,4 +1,4 @@
-package com.shzhangji.javasandbox.netty;
+package com.shzhangji.netty;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
