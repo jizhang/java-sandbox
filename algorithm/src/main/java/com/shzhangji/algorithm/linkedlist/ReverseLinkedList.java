@@ -1,5 +1,6 @@
 package com.shzhangji.algorithm.linkedlist;
 
+// https://leetcode.com/problems/reverse-linked-list/
 public class ReverseLinkedList {
   public static void main(String[] args) {
     var head = new ListNode(1);
