@@ -55,7 +55,7 @@ public class InvertBinaryTree {
   }
 
   static void printLevelOrder(TreeNode root) {
-    var height = new MaxDepth().maxDepth(root);
+    var height = new MaximumDepth().maxDepth(root);
     for (int i = 1; i <= height; ++i) {
       printCurrentLevel(root, i);
     }
