@@ -22,14 +22,14 @@ public class LevelOrderTraversal {
   }
 
   public List<List<Integer>> levelOrder(TreeNode root) {
-    return dfs(root);
+    return withIteration(root);
   }
 
   List<List<Integer>> bfs(TreeNode root) {
     List<List<Integer>> result = new ArrayList<>();
     if (root == null) return result;
 
-    Queue<TreeNode> queue = new ArrayDeque<>();
+    var queue = new ArrayDeque<TreeNode>();
     queue.add(root);
 
     while (!queue.isEmpty()) {
@@ -59,5 +59,26 @@ public class LevelOrderTraversal {
     result.get(level - 1).add(node.val);
     dfs(node.left, level + 1, result);
     dfs(node.right, level + 1, result);
+  }
+
+  // https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/2247522/Simple-or-Explaination-oror-Java-oror-NO-Queue-oror-ArrayList-oror-Different-Solution
+  List<List<Integer>> withIteration(TreeNode root) {
+    var result = new ArrayList<List<Integer>>();
+    if (root == null) return result;
+
+    List<TreeNode> nodes = List.of(root);
+    while (!nodes.isEmpty()) {
+      var level = new ArrayList<Integer>();
+      var next = new ArrayList<TreeNode>();
+      for (var node : nodes) {
+        level.add(node.val);
+        if (node.left != null) next.add(node.left);
+        if (node.right != null) next.add(node.right);
+      }
+      result.add(level);
+      nodes = next;
+    }
+
+    return result;
   }
 }
