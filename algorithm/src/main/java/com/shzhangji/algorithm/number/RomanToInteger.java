@@ -1,4 +1,4 @@
-package com.shzhangji.algorithm.string;
+package com.shzhangji.algorithm.number;
 
 import java.util.Map;
 
