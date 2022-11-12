@@ -23,4 +23,14 @@ public class ListNode {
     }
     System.out.println();
   }
+
+  public static ListNode make(int... values) {
+    var sentinel = new ListNode(0);
+    var current = sentinel;
+    for (var val : values) {
+      current.next = new ListNode(val);
+      current = current.next;
+    }
+    return sentinel.next;
+  }
 }
