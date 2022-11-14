@@ -30,7 +30,7 @@ public class PostorderTraversal {
     while (!stack.isEmpty()) {
       var node = stack.pop();
       result.addFirst(node.val); // Add to the beginning of result.
-      if (node.left != null) stack.push(node.left); // Left first, in compared to preorder traversal.
+      if (node.left != null) stack.push(node.left); // Left first, in comparison to preorder traversal.
       if (node.right != null) stack.push(node.right);
     }
 

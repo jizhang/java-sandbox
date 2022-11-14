@@ -1,7 +1,7 @@
 package com.shzhangji.algorithm.binarytree;
 
 import java.util.ArrayDeque;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
@@ -21,7 +21,7 @@ public class InorderTraversal {
   }
 
   public List<Integer> inorderTraversal(TreeNode root) {
-    var result = new LinkedList<Integer>();
+    var result = new ArrayList<Integer>();
     var stack = new ArrayDeque<TreeNode>();
     var node = root;
     while (node != null || !stack.isEmpty()) {
