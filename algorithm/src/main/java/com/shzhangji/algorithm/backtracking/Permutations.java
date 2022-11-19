@@ -1,8 +1,7 @@
-package com.shzhangji.algorithm.recursion;
+package com.shzhangji.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Deque;
 import java.util.List;
 
 // https://leetcode.com/problems/permutations/

@@ -12,6 +12,7 @@ public class LongestSubstring {
     System.out.println(obj.lengthOfLongestSubstring("pwwkew")); // 3
 
     System.out.println(obj.lengthOfLongestSubstring("au")); // 2
+    System.out.println(obj.lengthOfLongestSubstring("abba")); // 2
   }
 
   public int lengthOfLongestSubstring(String s) {
