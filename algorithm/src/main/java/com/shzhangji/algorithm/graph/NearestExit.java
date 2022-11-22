@@ -45,7 +45,7 @@ public class NearestExit {
     while (!queue.isEmpty()) {
       int size = queue.size();
       ++steps;
-      while (size-- > 0) {
+      while (size-- > 0) { // Similar to level order traversal.
         var point = queue.remove();
         for (var dir : dirs) {
           int row = point[0] + dir[0], col = point[1] + dir[1];
