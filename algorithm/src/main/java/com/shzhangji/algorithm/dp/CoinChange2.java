@@ -16,6 +16,7 @@ public class CoinChange2 {
 
   int topDown(int amount, int[] coins) {
     var memo = new Integer[coins.length][amount + 1];
+    // Use all coins.
     return topDown(amount, coins, coins.length - 1, memo);
   }
 
@@ -25,7 +26,10 @@ public class CoinChange2 {
     if (i == -1) return 0;
     if (memo[i][amount] != null) return memo[i][amount];
 
+    // Does not use i-th coin.
     int result = topDown(amount, coins, i - 1, memo);
+
+    // Use i-th coin.
     if (coins[i] <= amount) {
       result += topDown(amount - coins[i], coins, i, memo);
     }
