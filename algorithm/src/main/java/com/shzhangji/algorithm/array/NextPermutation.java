@@ -1,4 +1,4 @@
-package com.shzhangji.algorithm.backtracking;
+package com.shzhangji.algorithm.array;
 
 import java.util.Arrays;
 

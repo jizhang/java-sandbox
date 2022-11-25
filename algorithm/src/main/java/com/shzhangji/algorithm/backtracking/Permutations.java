@@ -17,12 +17,12 @@ public class Permutations {
     return backTracking(nums);
   }
 
-  List<List<Integer>> naive(int[] nums) {
+  List<List<Integer>> bruteForce(int[] nums) {
     if (nums.length == 1) return List.of(List.of(nums[0]));
     var result = new ArrayList<List<Integer>>();
     for (final int num : nums) {
       var sub = Arrays.stream(nums).filter(n -> n != num).toArray();
-      for (var list : naive(sub)) {
+      for (var list : bruteForce(sub)) {
         var item = new ArrayList<>(list);
         item.add(num);
         result.add(item);
