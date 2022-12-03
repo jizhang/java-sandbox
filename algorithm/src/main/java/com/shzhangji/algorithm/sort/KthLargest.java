@@ -20,7 +20,7 @@ public class KthLargest {
     return quickSelect(nums, q + 1, r, k);
   }
 
-  static int partition(int[] nums, int p, int r) {
+  int partition(int[] nums, int p, int r) {
     int i = p, j = p;
     while (j < r) {
       if (nums[j] < nums[r]) {
@@ -35,7 +35,7 @@ public class KthLargest {
     return i;
   }
 
-  static void swap(int[] nums, int a, int b) {
+  void swap(int[] nums, int a, int b) {
     int t = nums[a];
     nums[a] = nums[b];
     nums[b] = t;
