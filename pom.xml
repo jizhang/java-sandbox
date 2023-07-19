@@ -20,7 +20,8 @@
     <module>misc</module>
     <module>algorithm</module>
     <module>algs4</module>
-	<module>pattern</module>
+    <module>pattern</module>
+    <module>mapred</module>
   </modules>
 
   <dependencyManagement>
