@@ -1,0 +1,3 @@
+cat dog snake
+sheep dog rabbit
+dog rabbit cat
