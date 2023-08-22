@@ -1,26 +1,20 @@
 package com.shzhangji.pattern.factory;
 
+import com.shzhangji.pattern.factory.ingredient.*;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Setter;
 
 public abstract class Pizza {
-  @Getter
+  @Getter @Setter
   String name;
-  String dough;
-  String sauce;
-  List<String> toppings = new ArrayList<>();
+  Dough dough;
+  Sauce sauce;
+  Veggies[] veggies;
+  Cheese cheese;
+  Pepperoni pepperoni;
+  Clams clam;
 
-  void prepare() {
-    System.out.println("Preparing " + name);
-    System.out.println("Tossing dough...");
-    System.out.println("Adding sauce...");
-    System.out.println("Adding toppings:");
-    for (var topping : toppings) {
-      System.out.println("   " + topping);
-    }
-  }
+  abstract void prepare();
 
   void bake() {
     System.out.println("Bake for 25 minutes at 350");
