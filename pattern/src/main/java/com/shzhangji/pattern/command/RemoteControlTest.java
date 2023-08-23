@@ -19,5 +19,8 @@ public class RemoteControlTest {
     remote.offButtonWasPressed(1);
     remote.onButtonWasPressed(3);
     remote.offButtonWasPressed(3);
+    System.out.println(remote);
+
+    remote.undoButtonWasPressed();
   }
 }

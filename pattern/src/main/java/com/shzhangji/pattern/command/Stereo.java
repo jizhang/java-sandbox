@@ -1,7 +1,11 @@
 package com.shzhangji.pattern.command;
 
+import lombok.Getter;
+
 public class Stereo {
   String name;
+  @Getter
+  int volume = 10;
 
   public Stereo(String name) {
     this.name = name;
@@ -20,6 +24,7 @@ public class Stereo {
   }
 
   public void setVolume(int volume) {
+    this.volume = volume;
     System.out.println(name + " stereo volume set to " + volume);
   }
 }
