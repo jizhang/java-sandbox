@@ -22,5 +22,16 @@ public class RemoteControlTest {
     System.out.println(remote);
 
     remote.undoButtonWasPressed();
+
+    var partyOn = new MacroCommand(new Command[]{
+        new LightOnCommand(livingRoomLight),
+        new StereoOnWithCDCommand(stereo),
+    });
+    var partyOff = new MacroCommand(new Command[]{
+        new LightOffCommand(livingRoomLight),
+        new StereoOffCommand(stereo),
+    });
+    remote.setCommand(6, partyOn, partyOff);
+    remote.offButtonWasPressed(6);
   }
 }
