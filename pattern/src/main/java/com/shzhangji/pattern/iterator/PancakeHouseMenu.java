@@ -3,7 +3,7 @@ package com.shzhangji.pattern.iterator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu {
   List<MenuItem> menuItems;
 
   public PancakeHouseMenu() {
@@ -27,18 +27,8 @@ public class PancakeHouseMenu {
     menuItems.add(new MenuItem(name, description, vegetarian, price));
   }
 
+  @Override
   public Iterator<MenuItem> createIterator() {
-    final var iterator = menuItems.iterator();
-    return new Iterator<>() {
-      @Override
-      public boolean hastNext() {
-        return iterator.hasNext();
-      }
-
-      @Override
-      public MenuItem next() {
-        return iterator.next();
-      }
-    };
+    return new IteratorAdapter<>(menuItems.iterator());
   }
 }
