@@ -1,6 +1,6 @@
 package com.shzhangji.pattern.iterator;
 
-public class DinerMenu implements Menu {
+public class DinerMenu {
   static final int MAX_ITEMS = 6;
   int numberOfItems = 0;
   MenuItem[] menuItems;
@@ -30,7 +30,6 @@ public class DinerMenu implements Menu {
     ++numberOfItems;
   }
 
-  @Override
   public Iterator<MenuItem> createIterator() {
     return new DinerMenuIterator(menuItems, numberOfItems);
   }
