@@ -13,6 +13,7 @@ public class MenuTestDrive {
 
     var waitress = new Waitress(allMenus);
     waitress.printMenu();
+    waitress.printVegetarianMenu();
   }
 
   static Menu createPancakeHouseMenu() {
@@ -35,7 +36,7 @@ public class MenuTestDrive {
   static Menu createDinerMenu() {
     var dinerMenu = new Menu("DINER MENU", "Lunch");
     var iterator = new DinerMenu().createIterator();
-    while (iterator.hastNext()) {
+    while (iterator.hasNext()) {
       dinerMenu.add(iterator.next());
     }
 

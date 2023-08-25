@@ -26,8 +26,8 @@ public class Menu implements MenuComponent {
 
   @Override
   public void print() {
-    System.out.print("\n" + name);
-    System.out.println(", " + description);
+    System.out.print("\n" + getName());
+    System.out.println(", " + getDescription());
     System.out.println("----------------");
 
     menuComponents.forEach(MenuComponent::print);
@@ -36,5 +36,10 @@ public class Menu implements MenuComponent {
   @Override
   public void add(MenuComponent menuComponent) {
     menuComponents.add(menuComponent);
+  }
+
+  @Override
+  public Iterator<MenuComponent> createIterator() {
+    return new CompositeIterator(new IteratorAdapter<>(menuComponents.iterator()));
   }
 }

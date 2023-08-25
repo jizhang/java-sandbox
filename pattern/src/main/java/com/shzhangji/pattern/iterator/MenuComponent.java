@@ -7,4 +7,5 @@ public interface MenuComponent {
   double getPrice();
   void print();
   void add(MenuComponent menuComponent);
+  Iterator<MenuComponent> createIterator();
 }

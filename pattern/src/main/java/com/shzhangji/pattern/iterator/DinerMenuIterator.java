@@ -11,7 +11,7 @@ public class DinerMenuIterator implements Iterator<MenuItem> {
   }
 
   @Override
-  public boolean hastNext() {
+  public boolean hasNext() {
     return position < numberOfItems;
   }
 

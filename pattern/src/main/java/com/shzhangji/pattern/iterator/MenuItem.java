@@ -11,16 +11,21 @@ public class MenuItem implements MenuComponent {
 
   @Override
   public void print() {
-    System.out.print("  " + name);
-    if (vegetarian) {
+    System.out.print("  " + getName());
+    if (isVegetarian()) {
       System.out.print("(v)");
     }
-    System.out.println(", " + price);
-    System.out.println("    -- " + description);
+    System.out.println(", " + getPrice());
+    System.out.println("    -- " + getDescription());
   }
 
   @Override
   public void add(MenuComponent menuComponent) {
     throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Iterator<MenuComponent> createIterator() {
+    return new NullIterator();
   }
 }
