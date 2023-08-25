@@ -40,6 +40,6 @@ public class Menu implements MenuComponent {
 
   @Override
   public Iterator<MenuComponent> createIterator() {
-    return new CompositeIterator(new IteratorAdapter<>(menuComponents.iterator()));
+    return new IteratorAdapter<>(menuComponents.iterator());
   }
 }

@@ -12,7 +12,7 @@ public class Waitress {
   }
 
   public void printVegetarianMenu() {
-    var iterator = allMenus.createIterator();
+    var iterator = new CompositeIterator(allMenus.createIterator());
     System.out.println("\nVEGETARIAN MENU\n----");
     while (iterator.hasNext()) {
       var item = iterator.next();

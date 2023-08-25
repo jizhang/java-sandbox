@@ -66,6 +66,11 @@ public class MenuTestDrive {
     dessertMenu.add(new MenuItem("Cheesecake",
         "Creamy New York cheesecake, with a chocolate graham crust",
         true, 1.99));
+
+    var nestedMenu = new Menu("NESTED MENU", "For testing");
+    nestedMenu.add(new MenuItem("Salad", "Vegetables", true, 0.49));
+    dessertMenu.add(nestedMenu);
+
     return dessertMenu;
   }
 }

@@ -21,9 +21,7 @@ public class CompositeIterator implements Iterator<MenuComponent> {
   @Override
   public MenuComponent next() {
     var item = stack.peek().next();
-    if (item instanceof Menu) {
-      stack.push(item.createIterator());
-    }
+    stack.push(item.createIterator());
     return item;
   }
 }
