@@ -22,13 +22,13 @@
     </dependency>
     <dependency>
       <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
-      <version>1.67</version>
+      <artifactId>bcprov-jdk18on</artifactId>
+      <version>1.76</version>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.28</version>
+      <version>8.0.33</version>
     </dependency>
     <dependency>
       <groupId>com.clearspring.analytics</groupId>
