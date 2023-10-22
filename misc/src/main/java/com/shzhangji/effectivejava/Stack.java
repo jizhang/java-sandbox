@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item29;
+package com.shzhangji.effectivejava;
 
 public interface Stack<E> {
   void push(E e);

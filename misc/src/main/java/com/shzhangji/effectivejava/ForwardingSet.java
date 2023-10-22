@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item18;
+package com.shzhangji.effectivejava;
 
 import java.util.Collection;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item30;
+package com.shzhangji.effectivejava;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
-import static com.shzhangji.effectivejava.item30.CollectionHelper.max;
+import static com.shzhangji.effectivejava.CollectionHelper.max;
 
 public class CollectionHelperTest {
   @Test

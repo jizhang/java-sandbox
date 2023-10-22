@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item17;
+package com.shzhangji.effectivejava;
 
 public class Complex {
   private final double re;

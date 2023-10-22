@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item20;
+package com.shzhangji.effectivejava;
 
 import com.google.common.base.Preconditions;
 

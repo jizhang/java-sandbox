@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item29;
+package com.shzhangji.effectivejava;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;

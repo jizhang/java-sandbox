@@ -23,7 +23,6 @@
     <module>pattern</module>
     <module>mapred</module>
     <module>flink</module>
-    <module>effective-java</module>
   </modules>
 
   <dependencyManagement>

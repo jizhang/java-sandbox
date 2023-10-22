@@ -1,4 +1,4 @@
-package com.shzhangji.effectivejava.item30;
+package com.shzhangji.effectivejava;
 
 import java.util.Collection;
 import java.util.Optional;
