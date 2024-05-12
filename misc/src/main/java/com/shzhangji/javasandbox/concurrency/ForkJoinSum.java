@@ -5,7 +5,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 // http://homes.cs.washington.edu/~djg/teachingMaterials/spac/grossmanSPAC_forkJoinFramework.html
-public class ForkJoin {
+public class ForkJoinSum {
 
     static class Sum extends RecursiveTask<Long> {
 
