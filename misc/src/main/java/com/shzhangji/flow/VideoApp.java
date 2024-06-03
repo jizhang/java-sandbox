@@ -7,7 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 // https://www.baeldung.com/rxjava-vs-java-flow-api
 public class VideoApp {
   public static void main(String[] args) throws Exception {
-    var streamServer = new VideoStreamServer();
+    var serverExecutor = Executors.newSingleThreadExecutor();
+    var streamServer = new VideoStreamServer(serverExecutor, 5);
     streamServer.subscribe(new VideoPlayer());
 
     var executor = Executors.newScheduledThreadPool(1);
@@ -19,7 +20,12 @@ public class VideoApp {
       });
     }, 0, 1, TimeUnit.MILLISECONDS);
 
-    Thread.sleep(1000);
-    // TODO Not quitting, trigger backpressure
+    TimeUnit.SECONDS.sleep(1);
+
+    executor.shutdown();
+    executor.awaitTermination(1, TimeUnit.SECONDS);
+
+    streamServer.close();
+    serverExecutor.shutdown();
   }
 }
