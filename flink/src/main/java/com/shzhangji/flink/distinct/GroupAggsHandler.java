@@ -1,4 +1,4 @@
-package com.shzhangji.flink;
+package com.shzhangji.flink.distinct;
 
 import org.apache.flink.table.data.binary.BinaryStringData;
 import org.apache.flink.table.data.GenericRowData;
