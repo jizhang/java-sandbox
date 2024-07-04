@@ -14,7 +14,7 @@ public class TableJob {
       .build();
     TableEnvironment tableEnv = TableEnvironment.create(settings);
 
-    String path = System.getProperty("user.dir") + "/data/wordcount.txt";
+    String path = System.getProperty("user.dir") + "/flink/data/wordcount.txt";
     tableEnv.executeSql(
       "CREATE TABLE wordcount (\n" +
       "  line STRING\n" +
