@@ -1,10 +1,8 @@
 package com.shzhangji.flink.distinct;
 
 import com.google.common.hash.Hashing;
-import com.shzhangji.flink.proton.Utils;
-import java.util.HashMap;
+import java.time.Duration;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.AggregateFunction;
@@ -15,20 +13,22 @@ import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.connector.source.util.ratelimit.RateLimiterStrategy;
-import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.CheckpointingOptions;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.datagen.source.DataGeneratorSource;
 import org.apache.flink.connector.datagen.source.GeneratorFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
+import org.apache.flink.streaming.api.windowing.assigners.GlobalWindows;
+import org.apache.flink.streaming.api.windowing.triggers.ContinuousProcessingTimeTrigger;
 import org.apache.flink.streaming.api.windowing.windows.GlobalWindow;
 import org.apache.flink.util.Collector;
 
-public class CountDistinctStreamJob {
+public class DistinctStreamJob {
   public static void main(String[] args) throws Exception {
     var conf = new Configuration();
     conf.set(CheckpointingOptions.CHECKPOINT_STORAGE, "filesystem");
@@ -43,22 +43,22 @@ public class CountDistinctStreamJob {
     DataGeneratorSource<String> source = new DataGeneratorSource<>(
         generator, Long.MAX_VALUE, RateLimiterStrategy.perSecond(100), Types.STRING);
 
-    DataStreamSource<String> stream = env.fromSource(source, WatermarkStrategy.noWatermarks(), "data-gen");
+    KeyedStream<String, String> stream = env
+        .fromSource(source, WatermarkStrategy.noWatermarks(), "datagen")
+        .keyBy(value -> value.substring(0, 1));
 
-    KeySelector<String, String> key = value -> value.substring(0, 1);
-//    stream
-//        .keyBy(key)
-//        .window(GlobalWindows.create())
-//        .trigger(ContinuousProcessingTimeTrigger.of(Duration.ofSeconds(1)))
-//        .aggregate(new DistinctAggregate(), new DistinctProcessWindow())
-//        .print();
-
-    stream
-        .keyBy(key)
-        .process(new DistinctProcess())
-        .print();
+    processByWindow(stream);
+    processByFunction(stream);
 
     env.execute();
+  }
+
+  static void processByWindow(KeyedStream<String, String> stream) {
+    stream
+        .window(GlobalWindows.create())
+        .trigger(ContinuousProcessingTimeTrigger.of(Duration.ofSeconds(5)))
+        .aggregate(new DistinctAggregate(), new DistinctProcessWindow())
+        .print();
   }
 
   public static class DistinctAggregate implements AggregateFunction<String, Set<String>, Long> {
@@ -91,6 +91,12 @@ public class CountDistinctStreamJob {
       var count = elements.iterator().next();
       out.collect(Tuple2.of(key, count));
     }
+  }
+
+  static void processByFunction(KeyedStream<String, String> stream) {
+    stream
+        .process(new DistinctProcess())
+        .print();
   }
 
   public static class DistinctProcess extends KeyedProcessFunction<String, String, Tuple2<String, Long>> {
