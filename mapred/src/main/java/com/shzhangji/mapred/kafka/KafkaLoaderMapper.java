@@ -5,12 +5,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +25,7 @@ public class KafkaLoaderMapper extends Mapper<NullWritable, Text, NullWritable, 
   protected void setup(Mapper<NullWritable, Text, NullWritable, Text>.Context context)
       throws IOException, InterruptedException {
 
-    mos = new MultipleOutputs<NullWritable, Text>(context);
+    mos = new MultipleOutputs<>(context);
     split = (KafkaInputSplit) context.getInputSplit();
   }
 
@@ -55,12 +55,11 @@ public class KafkaLoaderMapper extends Mapper<NullWritable, Text, NullWritable, 
     mos.close();
   }
 
-  private String getPartitionValue(String value) throws IOException {
+  protected String getPartitionValue(String value) throws IOException {
     JsonNode node = objectMapper.readTree(value);
-    long timestamp = node.path(KafkaLoader.TIMESTAMP_KEY).getLongValue();
+    long timestamp = node.path(KafkaLoader.TIMESTAMP_KEY).longValue();
     Date date = new Date(timestamp * 1000);
     DateFormat df = new SimpleDateFormat("yyyyMMdd");
-    String partitionValue = df.format(date);
-    return partitionValue;
+    return df.format(date);
   }
 }
